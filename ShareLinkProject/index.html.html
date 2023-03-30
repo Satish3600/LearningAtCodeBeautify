@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sharelink Generator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+</head>
+
+<body>
+  <div class="container is-fluid mt-6">
+    <div class="columns">
+      <!-- All List Side Menu-->
+      <div class="column is-2">
+        <aside class="menu is-hidden-mobile">
+          <ul class="menu-list">
+            <li><a class="" id="AllOptionActiveColor">
+                <div class="icon-text">
+                  <span onclick="allOptionActive('AllOptionActiveColor')">All Option Active</span>
+                </div>
+              </a></li>
+            <li><a class="" id="facebookColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-facebook-f"></i>
+                  </div>
+                  <span onclick="activateLink('showFacebook', 'facebookColor')">Facebook</span>
+                </div>
+              </a></li>
+
+            <li><a class="" id="FacebookDialogColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-regular fa-comment-dots"></i>
+                  </div>
+                  <span onclick="activateLink('showFacebookDialog' , 'FacebookDialogColor')">Facebook
+                    Dialog</span>
+                </div>
+              </a></li>
+            <li><a class="" id="TwitterColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-twitter"></i>
+                  </div>
+                  <span onclick="activateLink('showTwitter' , 'TwitterColor')">Twitter</span>
+                </div>
+              </a></li>
+            <li><a class="" id="PinterestColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-pinterest-p"></i>
+                  </div>
+                  <span onclick="activateLink('showPinterest', 'PinterestColor')">Pinterest</span>
+                </div>
+              </a></li>
+            <li><a class="" id="LinkedInColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </div>
+                  <span onclick="activateLink('showLinkedIn', 'LinkedInColor')">Linked In</span>
+                </div>
+              </a></li>
+            <li><a class="" id="BufferColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-buffer"></i>
+                  </div>
+                  <span onclick="activateLink('showBuffer' , 'BufferColor')">Buffer</span>
+                </div>
+              </a></li>
+            <li><a class="" id="DiggColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-digg"></i>
+                  </div>
+                  <span onclick="activateLink('showDigg' , 'DiggColor')">Digg</span>
+                </div>
+              </a></li>
+            <li><a class="" id="TumblrColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-tumblr"></i>
+                  </div>
+                  <span onclick="activateLink('showTumblr' , 'TumblrColor')"> Tumblr</span>
+                </div>
+              </a></li>
+            <li><a class="" id="RedditColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-reddit-alien"></i>
+                  </div>
+                  <span onclick="activateLink('showReddit' , 'RedditColor')">Reddit</span>
+                </div>
+              </a></li>
+            <li><a class="" id="StumbleuponColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-stumbleupon"></i>
+                  </div>
+                  <span onclick="activateLink('showStumbleupon' , 'StumbleuponColor')">Stumbleupon</span>
+                </div>
+              </a></li>
+            <li><a class="" id="DeliciousColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-brands fa-delicious"></i>
+                  </div>
+                  <span onclick="activateLink('showDelicious' , 'DeliciousColor')">Delicious</span>
+                </div>
+              </a></li>
+            <li><a class="" id="EmailColor">
+                <div class="icon-text">
+                  <div class="icon">
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                  <span onclick="activateLink('showEmail' , 'EmailColor')">Email</span>
+                </div>
+              </a></li>
+          </ul>
+        </aside>
+      </div>
+
+      <script>
+        function hideAll() {
+          document.getElementById("showTwitter").style.display = "none";
+          document.getElementById("showFacebookDialog").style.display = "none";
+          document.getElementById("showPinterest").style.display = "none";
+          document.getElementById("showLinkedIn").style.display = "none";
+          document.getElementById("showBuffer").style.display = "none";
+          document.getElementById("showDigg").style.display = "none";
+          document.getElementById("showTumblr").style.display = "none";
+          document.getElementById("showReddit").style.display = "none";
+          document.getElementById("showStumbleupon").style.display = "none";
+          document.getElementById("showDelicious").style.display = "none";
+          document.getElementById("showEmail").style.display = "none";
+          document.getElementById("showFacebook").style.display = "none";
+        }
+        function deactivateSideBarAll() {
+          document.getElementById("facebookColor").className = "none";
+          document.getElementById("FacebookDialogColor").className = "none";
+          document.getElementById("TwitterColor").className = "none";
+          document.getElementById("PinterestColor").className = "none";
+          document.getElementById("LinkedInColor").className = "none";
+          document.getElementById("BufferColor").className = "none";
+          document.getElementById("DiggColor").className = "none";
+          document.getElementById("TumblrColor").className = "none";
+          document.getElementById("RedditColor").className = "none";
+          document.getElementById("StumbleuponColor").className = "none";
+          document.getElementById("DeliciousColor").className = "none";
+          document.getElementById("EmailColor").className = "none";
+          document.getElementById("AllOptionActiveColor").className = "none"; //Used For Select All Valuue
+        }
+        function activateLink(elementById, sideBarLinkId) {
+          hideAll();
+          document.getElementById(elementById).style.display = "";
+          deactivateSideBarAll();
+          document.getElementById(sideBarLinkId).className = "is-active";
+        }
+        // element.className = "button is-danger";
+        function showAll() {
+          document.getElementById("showTwitter").style.display = "";
+          document.getElementById("showFacebookDialog").style.display = "";
+          document.getElementById("showPinterest").style.display = "";
+          document.getElementById("showLinkedIn").style.display = "";
+          document.getElementById("showBuffer").style.display = "";
+          document.getElementById("showDigg").style.display = "";
+          document.getElementById("showTumblr").style.display = "";
+          document.getElementById("showReddit").style.display = "";
+          document.getElementById("showStumbleupon").style.display = "";
+          document.getElementById("showDelicious").style.display = "";
+          document.getElementById("showEmail").style.display = "";
+          document.getElementById("showFacebook").style.display = "";
+        }
+        function allOptionActive(sideBarLinkId) {
+          showAll()
+          // activateLink()
+          document.getElementById(sideBarLinkId).className = "is-active";
+        }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <div class="column is-5">
+
+        <div class="content has-text-centered is-capitalized">
+          <h1 class="title is-size-3">Sharelink Generator</h1>
+          <!-- icon is pending -->
+        </div>
+        <div class="block">
+          <div class="field">
+            <label class="label is-inline">
+              <span>Url/Content</span>
+              <span class="is-pulled-right"><a href="#" onclick="genrateSample()" class="has-text-black"
+                  href="">Sample</a></span>
+            </label>
+            <div class="control mt-3">
+              <input id="userEnterdWords" type="text" oninput="checkAutomaticPrintValues()" class="input is-info"
+                placeholder="https://codebeautify.org/">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="block">
+                    <div class="field">
+                        <div class="control has-text-centered">
+                            <button onclick="genrateLink()"
+                                class="button is-primary is-medium is-rounded">Generate</button>
+                            <button class="button is-danger is-medium is-rounded">Clear</button>
+                            <button class="button is-link is-medium is-rounded"><i
+                                    class="fa-solid fa-copy"></i></button>
+                            <button class="button is-warning is-medium is-rounded"><i
+                                    class="fa-solid fa-code"></i></button>
+                        </div>
+                    </div>
+                </div> -->
+
+        <div class="block has-text-centered">
+          <div class="field">
+            <label class="checkbox is-inline">
+              <span class="is-size-4">
+                <input type="checkbox" id="autoPrint" onclick="genrateLink();" checked></span>
+              <span class="mr-2">Auto</span>
+            </label>
+            <div class="control is-inline">
+              <button class="button mr-2 is-primary is-size-6 is-medium is-rounded"
+                onclick="genrateLink()">Generate</button>
+              <button onclick="refreshPage()"
+                class="button mr-2 is-danger is-size-6 is-medium is-rounded">Clear</button>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function refreshPage() {
+            location.reload();
+          }
+        </script>
+
+
+        <script>
+          function genrateSample() {
+            const sampleCode = "https://codebeautify.org/";
+
+            document.getElementById("userEnterdWords").value = sampleCode;
+            genrateLink();
+          }
+          function checkAutomaticPrintValues() {
+            let checkboxEle = document.getElementById("autoPrint");
+            console.log("test:->" + checkboxEle.checked)
+            if (checkboxEle.checked == true) {
+              genrateLink();
+            }
+
+          }
+          function genrateLink() {
+            let userInputValue = document.getElementById("userEnterdWords").value;
+            let facebook = "https://www.facebook.com/sharer/sharer.php?u=" + userInputValue;
+            // // let  facebookDialog = "" + userInputValue;
+            let twitter = "https://twitter.com/intent/tweet?text=" + userInputValue;
+            let pinterest = " http://pinterest.com/pin/create/button/?url=" + userInputValue + "&media=&description=";
+            let linkedIn = " https://www.linkedin.com/shareArticle?mini=true&url= " + userInputValue;
+            // let buffer = " " + userInputValue;
+            // let dig = " " + userInputValue;
+            let tumblr = "http://www.tumblr.com/share?v=3&u=&t=" + userInputValue;
+            // let reddit = " " + userInputValue;
+            // let stumbleupon = " " + userInputValue;
+            // let delicious = " " + userInputValue;
+            // let email = " " + userInputValue;
+
+
+
+
+
+
+            document.getElementById("answerFacebook").value = facebook;
+            // document.getElementById("answerFacebookDialog").value = facebookDialog;
+            document.getElementById("answerTwitter").value = twitter;
+            document.getElementById("answerPinterest").value = pinterest;
+            document.getElementById("answerLinkedIn").value = linkedIn;
+            // document.getElementById("answerBuffer").value =  buffer;
+            // document.getElementById("answerDigg").value =  dig;
+            document.getElementById("answerTrumblr").value = tumblr;
+            // document.getElementById("answerReddit").value =  reddit;
+            // document.getElementById("answerStumbleupon").value =  stumbleupon;
+            // document.getElementById("answerDelicious").value =  delicious;
+            // document.getElementById("answerEmail").value =  email;
+          }
+        </script>
+
+
+
+
+
+
+        <div class="block" id="showFacebook">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon is-inline">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <span>Facebook</span>
+              </div>
+              <span class="is-pulled-right">
+                <a href="#" id="">
+                  <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                </a>
+              </span>
+              <span class="is-pulled-right mr-5" id="fbCopy">
+                <a id="fbLink" href="#" onclick="copySocialLink('fbLink','fbCopy','answerFacebook' )">
+                  <i class="fa-solid fa-copy has-text-black"></i>
+                </a>
+              </span>
+
+              <span class="is-pulled-right mr-5">
+                <a href="#" onclick="createHtmlCode()">
+                  <i class="fa-solid fa-code has-text-black">
+                  </i>
+                </a>
+              </span>
+
+
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerFacebook" type="text" class="input is-success" placeholder="facebook">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="block is-hidden" id="showFacebookHtmlcode">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon is-inline">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </div>
+                <span>HTML link:</span>
+              </div>
+              <span class="is-pulled-right mr-5" id="fbCopy">
+                <a id="fbLink" href="#">
+                  <i class="fa-solid fa-copy has-text-black"></i>
+                </a>
+              </span>
+            </label>
+            <div class="control has-icons-right">
+              <div class="columns">
+                <div class="column is-6">
+
+                  <textarea id="printFacebookHtmlCode" class="textarea" placeholder="facebook Html Code"></textarea>
+                </div>
+                <div class="column is-6">
+                  <textarea id="printFacebookPreviewCode" class="textarea" placeholder="preview"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <a href="">
+          <p id="satu"></p>
+        </a>
+
+        <script>
+          function createHtmlCode() {
+            let userInputValue = document.getElementById("userEnterdWords").value;
+            let testigS = document.getElementById("satu").value;
+
+
+            let facebook = '<a href="https://www.facebook.com/sharer/sharer.php?u=' + userInputValue + '">Share on Facebook</a>';
+            // let facebookPreviewCode =  "<a href='https://www.w3schools.com'>" + userInputValue + "</a>";
+
+
+            var x = document.getElementById("showFacebookHtmlcode");
+            console.log(x)
+            if (x.className == "block is-hidden") {
+              x.className = "block";
+            } else {
+              x.className = "block is-hidden";
+            }
+
+
+
+            document.getElementById("printFacebookHtmlCode").value = facebook;
+            // document.getElementById("printFacebookPreviewCode").value = facebookPreviewCode;
+            document.getElementById("printFacebookPreviewCode").value = facebook;
+
+            copySocialLink();
+          }
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- used for hjtmlelement show -->
+
+
+
+        <script>
+          function copySocialLink(socialLink, socialCopy, socialText) {
+            var copyText = document.getElementById(socialText);
+            console.log("socialText  " + socialText)
+            // if(copyText == 10){
+            //     alert("kjdbcjk")
+            // }
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+
+            document.getElementById(socialLink).style.display = "none";
+            console.log("socialLink  " + socialLink)
+
+            var tooltip = document.getElementById(socialCopy);
+            tooltip.innerHTML = tooltip.innerHTML + "Copied:"
+            console.log("socialCopy   " + socialCopy)
+            setTimeout(() => {
+              tooltip.innerHTML = tooltip.innerHTML.replace("Copied:", "");
+              document.getElementById(socialLink).style.display = "";
+            }, 1000);
+          }
+
+
+
+
+
+
+
+
+
+        </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="block" id="showFacebookDialog">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-regular fa-comment-dots"></i>
+                </div>
+                <span>Facebook Dialog</span>
+              </div>
+              <span class="is-pulled-right"><a href="#">
+                  <i class="fa-solid fa-arrow-up-right-from-square has-text-black">
+                  </i>
+                </a>
+              </span>
+
+
+
+
+              <span class="is-pulled-right mr-5" id="FacebookDialogCopy">
+                <a href="#" id="FacebookDialogLink"
+                  onclick="copySocialLink('FacebookDialogLink','FacebookDialogCopy','answerFacebookDialog' )">
+                  <i class="fa-solid fa-copy has-text-black">
+                  </i>
+                </a>
+              </span>
+
+
+
+
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerFacebookDialog" type="text" class="input is-success" placeholder="facebookdialog">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showTwitter">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-twitter"></i>
+                </div>
+                <span>Twitter</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+
+
+
+              <span class="is-pulled-right mr-5">
+                <a href="#">
+                  <i class="fa-solid fa-copy has-text-black"></i>
+                </a>
+              </span>
+
+
+
+
+
+
+
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerTwitter" type="text" class="input is-success" placeholder="twitter">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showPinterest">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-pinterest-p"></i>
+                </div>
+                <span>Pinterest</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerPinterest" type="text" class="input is-success" placeholder="pinterest">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showLinkedIn">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-linkedin-in"></i>
+                </div>
+                <span>Linked In</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerLinkedIn" type="text" class="input is-success" placeholder="linkedIn">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showBuffer">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-buffer"></i>
+                </div>
+                <span>Buffer</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerBuffer" type="text" class="input is-success" placeholder="buffer">
+            </div>
+          </div>
+        </div>
+
+        <div class="block " id="showDigg">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-digg"></i>
+                </div>
+                <span>Digg</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerDigg" type="text" class="input is-success" placeholder="digg">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showTumblr">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-tumblr"></i>
+                </div>
+                <span>Tumblr</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerTrumblr" type="text" class="input is-success" placeholder="tumblr">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showReddit">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-reddit-alien"></i>
+                </div>
+                <span>Reddit</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerReddit" type="text" class="input is-success" placeholder="reddit">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showStumbleupon">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-stumbleupon"></i>
+                </div>
+                <span>Stumbleupon</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerStumbleupon" type="text" class="input is-success" placeholder="stumbleupon">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showDelicious">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-brands fa-stumbleupon"></i>
+                </div>
+                <span>Delicious</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerDelicious" type="text" class="input is-success" placeholder="delicious">
+            </div>
+          </div>
+        </div>
+
+        <div class="block" id="showEmail">
+          <div class="field">
+            <label class="label">
+              <div class="icon-text is-inline">
+                <div class="icon">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <span>Email</span>
+              </div>
+              <span class="is-pulled-right"><a href="#"><i
+                    class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+              <span class="is-pulled-right mr-5"><a href="#"><i class="fa-solid fa-code has-text-black"></i></a></span>
+            </label>
+            <div class="control has-icons-right">
+              <input id="answerEmail" type="text" class="input is-success" placeholder="email">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column is-5">
+
+      </div>
+    </div>
+  </div>
+
+  </div>
+</body>
+
+</html>

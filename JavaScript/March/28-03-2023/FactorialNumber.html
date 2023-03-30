@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="satish" value="5">
+
+
+        <div class="column has-text-centered">
+            <button ondblclick="factorial1()" class="button is-info">
+                Click
+            </button>
+        </div>
+        <p id="print"></p>
+        <p id="print1"></p>
+    </div>
+    <script>
+        function factorial1() {
+            var sp = Number(document.getElementById("satish").value);
+            var fact = 1;
+            stringS ="";
+            for (i = 1; i <= sp; i++) {
+                fact = fact * i;
+                console.log(fact);
+                stringS =stringS + i;
+            }
+            document.getElementById("print").innerHTML = fact;
+            document.getElementById("print1").innerHTML = stringS;
+        }
+
+        factorial1()
+    </script>
+</body>
+
+</html>

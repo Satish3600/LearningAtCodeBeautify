@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container p-5">
+        <input id="first" value="3" type="text" class="input is-large"
+            placeholder="Enter The Value For Draw Star Pattern"><br><br>
+        <div class="column has-text-centered">
+            <button onclick="star ()" class="button is-info">Click</button>
+        </div>
+        <p id="starline"></p>
+        <script>
+            star()// use for automatilaly draw table without click on mo
+            function star()
+            {
+                let a = Number(document.getElementById("first").value);
+                var strDiv = '<table class="table is-bordered"> <tr>';
+                let counter = 1;
+                let n= a;
+                let printFirst = false;
+                let printCounter =0;
+                let sumValue =1;
+                for (i = 1; i <= a; i++)
+                {
+                 for (k = 1; k <= (a * 2)-1; k++)
+                    {
+                        if(n==k){
+                            strDiv = strDiv  + `<td class="is-danger">*</td>`;
+                            n=n-1;
+                            printFirst = true;
+                            printCounter = printCounter + 1;
+                            sumValue = k;
+                        }else{
+                            if(printFirst){
+                                if(sumValue + 2==k && printCounter<i){
+                                    strDiv = strDiv  + `<td class="is-danger">*</td>`;
+                                    printCounter = printCounter + 1;
+                                    sumValue = sumValue + 2;
+                                }else{
+                                    strDiv = strDiv  + `<td >&nbsp;</td>`;
+                                }
+                            }else{
+                                strDiv = strDiv  + `<td >&nbsp;</td>`;
+                            }
+                        }
+                    }
+                    printCounter = 0;
+                      printFirst = false;
+                      counter = counter + 1;
+                      sumValue = 1;
+                   strDiv = strDiv + "</tr>";
+                }
+                document.getElementById("starline").innerHTML = strDiv;
+            }
+        </script>
+</body>
+</html>

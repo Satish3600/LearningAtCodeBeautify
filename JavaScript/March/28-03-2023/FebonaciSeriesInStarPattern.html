@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" class="input is-large" value="5" id="firstValue"> <br><br>
+        <div class="column has-text-centered">
+            <button onclick="fiboSeries()" class="button is-info ">
+                Click
+            </button>
+        </div>
+        <p id="print"></p>
+        <p id="print1"></p>
+        <p id="print2"></p>
+    </div>
+
+    <script>
+        function fiboSeries() {
+
+            strFebo ="";
+             firstValue = Number(document.getElementById("firstValue").value);
+             n1 = 0;
+             n2 = 1;
+            nextTerm = 0;
+            for (let i = 1; i <= firstValue; i++) {
+             
+                for (let j=1; j<=i; j++){
+                    //strFebo =  strFebo + "."
+                    nextTerm = n1 + n2;
+                strFebo = strFebo + "   " + nextTerm ;
+                console.log(strFebo)
+           
+                n1 = n2;
+                n2 = nextTerm;
+                }
+                for(k=1; k<=firstValue; k++){
+                  
+                }
+                strFebo =   strFebo + "<br>";
+                
+            }
+            document.getElementById("print1").innerHTML = strFebo; 
+        }
+
+
+
+
+    </script>
+
+</body>
+
+</html>

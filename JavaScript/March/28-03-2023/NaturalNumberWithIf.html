@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="firstValue" class="input is-large" value="10">
+        <div class="column has-text-centered">
+            <div class="column has-text-centered">
+                <button onclick="Calculate()" class="button is-info">
+                    Click
+                </button>
+            </div>
+            <p id="print"></p>
+            <p id="print1"></p>
+        </div>
+
+
+        <script>
+            function Calculate() {
+                    var firstValue = Number(document.getElementById("firstValue").value);
+                    var temp = 0;
+                    var bemp = 1;
+                    var stringTemp = "";
+                  //  temp = temp + bemp;
+                    demp = temp + bemp;
+                    for(i=0; i<=firstValue; i++){
+                        // stringTemp = stringTemp + i;
+                        temp  = temp + bemp;
+                       
+                    }
+                    // document.getElementById("print").innerHTML = stringTemp;
+                    document.getElementById("print").innerHTML = temp;
+                    document.getElementById("print1").innerHTML = demp;
+            }
+        </script>
+
+</body>
+
+</html>

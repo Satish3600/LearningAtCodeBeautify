@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        Start <input type="text" id="start">
+        End <input type="text" id="end">
+        Condition <input type="text" id="condition">
+        <div class="column has-text-centered">
+            <button onclick="sum()" class="button is-info">Click</button>
+        </div>
+        <p id="sumresult"></p>
+        <p id="sumresult1"></p>
+    </div>
+    <script>
+        function sum() {
+            var firstinputvalue = Number(document.getElementById("start").value);
+            var secondinputvalue = Number(document.getElementById("end").value);
+            var thirdinputvalue = Number(document.getElementById("condition").value);
+            temp = thirdinputvalue;
+            addition = 0;
+            stringSum = "";
+            for (i = firstinputvalue; ;i++) {
+                addition = addition + i;
+                stringSum = stringSum + i + "+";
+                if (addition > temp) {
+                    break;
+                }
+            }
+            document.getElementById("sumresult").innerHTML = addition;
+            document.getElementById("sumresult1").innerHTML = stringSum;
+        }
+    </script>
+</body>
+
+</html>

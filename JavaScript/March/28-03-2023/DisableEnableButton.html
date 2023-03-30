@@ -1,0 +1,173 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table-Genrator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        Rows <input type="text" id="userEnteredFirstValue" value="4"> <br>
+        Columns <input type="text" id="userEnteredSecondValue" value="4"> <br>
+        Minus <input type="text" id="userEnteredThirdValue">
+        <div class="column has-text-centered">
+            <button onclick="firstTimeDraw()" class="button is-danger is-small">AddTable1</button><br><br>
+            <button id="buttonLeft" onclick="leftButton()" class="button is-info is-small">left</button>
+            <button id="buttonRight" onclick="rightButton()" class="button is-info is-small">right</button>
+            <button id="buttonUp" onclick="upButton()" class="button is-info is-small">up</button>
+            <button id="buttonDown" onclick="downButton()" class="button is-info is-small">down</button>
+        </div>
+        <!-- <div class="container table-container">
+            <table class="table is-bordered">
+                <thead>
+                <tbody id="printTable">
+                </tbody>
+            </table> -->
+        <p id="printTable"></p>
+    </div>
+    <script>
+        // tracker =0;
+        tempi = 1;
+        tempj = 1;
+        flag = false;
+        function firstTimeDraw() {
+            flag = false;
+            drawTable()
+        }
+        function drawTable() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            if (flag == false) {
+                userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value);
+                tempi = userEnteredThirdValue;
+                tempj = userEnteredThirdValue;
+                flag = true;
+            }
+
+            let stringTable = ' <table class="table is-bordered"><tr>';
+            for (let i = 1; i <= userEnteredFirstValue; i++) {
+                for (let j = 1; j <= userEnteredSecondValue; j++) {
+                    if (i == tempi && j == tempj) {
+                        stringTable = stringTable + "<td>" + "*" + "</td>";
+                    }
+                    else {
+                        stringTable = stringTable + "<td>" + "</td>";
+                    }
+                }
+                stringTable = stringTable + "</tr>";
+            }
+            document.getElementById("printTable").innerHTML = stringTable;
+        }
+        function leftButton() {
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let buttonLeftVar = document.getElementById("buttonLeft");
+            let buttonUpVar = document.getElementById("buttonUp")
+           
+            // if (tempj == 1 ) {
+                // document.getElementById("buttonLeft").disabled = true;
+            // }
+     
+            // else {console.log()
+                console.log("checking left      " +tempj)
+                tempj = tempj - 1;
+            // }
+            disableButtons()
+            // drawTable()
+        }
+        function rightButton() {
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let buttonRightVar = document.getElementById("buttonRight");
+            let buttonDownVar = document.getElementById("buttonDown");
+          
+            // if (tempj == userEnteredSecondValue ) {
+                // document.getElementById("buttonRight").disabled = true;
+            // }
+            // else {
+                tempj = tempj + 1;
+            // }
+            disableButtons()
+            // drawTable()
+        }
+        function upButton() {
+            let buttonLeftVar = document.getElementById("buttonLeft");
+            let buttonUpVar = document.getElementById("buttonUp");
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+
+            // if (tempi == 1) {
+                // document.getElementById("buttonUp").disabled = true;
+            // }
+            // else {
+                tempi = tempi - 1;
+            // }
+            disableButtons()
+            // drawTable()
+        }
+        function downButton() {
+            let buttonLeftVar = document.getElementById("buttonLeft");
+            let buttonDownVar = document.getElementById("buttonDown");
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            // if (tempi == userEnteredFirstValue) {
+                // document.getElementById("buttonDown").disabled = true;
+            // }
+            // else {
+                tempi = tempi + 1;
+            // }
+            disableButtons()
+            // drawTable()
+        }
+        function disableButtons(){
+            console.log(":->tempj"+tempj);
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+
+            if(tempj == 1)
+            {
+                console.log(":-> left button value in tempj"+tempj);
+                document.getElementById("buttonLeft").disabled = true;
+            }
+            else{
+                document.getElementById("buttonLeft").disabled = false;
+            }
+
+            console.log(":->  in   :>left button value in tempj"+tempj);
+
+            if(tempj >= userEnteredSecondValue)
+            {
+                console.log(":->in tempj"+tempj + " "+userEnteredSecondValue);
+                document.getElementById("buttonRight").disabled = true;
+            }
+            else{
+                document.getElementById("buttonRight").disabled = false;
+            }
+
+
+            if(tempi <= 1)
+            {
+                console.log(":->in tempj"+tempi);
+                document.getElementById("buttonUp").disabled = true;
+            }
+            else{
+                document.getElementById("buttonUp").disabled = false;
+            }
+
+
+            if(tempi >= userEnteredFirstValue)
+            {
+                console.log(":->in tempj"+tempi);
+                document.getElementById("buttonDown").disabled = true;
+            }
+            else{
+                document.getElementById("buttonDown").disabled = false;
+            }
+            drawTable()
+        }
+
+    </script>
+</body>
+
+</html>

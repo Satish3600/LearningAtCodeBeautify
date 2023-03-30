@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Star Game</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="block">
+            <div class="field mt-5 mb-5">
+                <div class="control has-text-centered">
+                    <button onclick="genrateTable()" class="button is-small is-danger has-text-weight-bold">Generat
+                        Table</button>
+                    <div class="block">
+                        <p id="displayTable" class="has-text-weight-semibold"></p>
+                        <p id="displaySum" class="has-text-weight-semibold">Counter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-3"></div>
+            <div class="column is-6">
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button onclick="leftUpperButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">LeftUpper</button>
+                        <button onclick="upButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Up</button>
+                        <button onclick="rightUpperButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">RightUpper</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button onclick="leftButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Left</button>
+                        <button class="button is-small is-white has-text-weight-bold has-text-white">1</button>
+                        <button onclick="rightButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Right</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button onclick="leftDownButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">LeftDown</button>
+                        <button onclick="downButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Down</button>
+                        <button onclick="rightDownButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">RightDown</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3"></div>
+        </div>
+
+    </div>
+    </div>
+    <script>
+        let userEnteredFirstValue = 27;
+        let userEnteredSecondValue = 27;
+        // let userEnteredThirdValue = 9;
+        let tempi = 1;
+        let tempj = 1;
+        let randomi = Math.floor(1 + Math.random() * 27);
+        let randomj = Math.floor(1 + Math.random() * 27);
+
+        var sum = 0;
+        function genrateTable() {
+
+            stringTable = '<table class="table is-bordered"><tr>';
+            for (let i = 1; i <= userEnteredFirstValue; i++) {
+                for (let j = 1; j <= userEnteredSecondValue; j++) {
+                    if (i == tempi && j == tempj) {
+                        stringTable = stringTable + '<td>' + "G" + '</td>';
+                    }
+                   else if (i == randomi && j == randomj) {
+                        stringTable = stringTable + '<td>' + "*" + '</td>';
+                    }
+
+                    else {
+                        stringTable = stringTable + '<td>' + '</td>';
+                    }
+                }
+                stringTable = stringTable + '</tr>';
+            }
+            document.getElementById("displayTable").innerHTML = stringTable;
+        }
+        function leftButton() {
+            if (tempj == 1) {
+                alert("Boundry Limit Over")
+            }
+            else {
+
+                tempj = tempj - 1;
+
+            }
+            sumValue()
+        }
+        function rightButton() {
+            //  let userEnteredSecondValue = 16;
+            if (tempj == userEnteredSecondValue) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj + 1;
+
+            }
+            sumValue()
+        }
+        function upButton() {
+            if (tempi == 1) {
+                alert("Boundry Limit Over")
+
+            }
+            else {
+                tempi = tempi - 1;
+                console.log(tempi)
+            }
+            sumValue()
+        }
+        function downButton() {
+            // let userEnteredFirstValue = 16;
+            if (tempi == userEnteredFirstValue) {
+                alert("Boundry Limit Over")
+
+
+            }
+            else {
+                tempi = tempi + 1;
+                console.log(tempi)
+            }
+            sumValue()
+        }
+        function leftUpperButton() {
+            
+            if (tempj == 1 || tempi == 1) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj - 1;
+                tempi = tempi - 1;
+            }
+
+            sumValue()
+        }
+        function rightUpperButton() {
+          
+            if (tempi == 1 || tempj == userEnteredSecondValue) {
+                alert("Boundry Limit Over")
+
+            }
+            else {
+                tempj = tempj + 1;
+                tempi = tempi - 1;
+            }
+
+
+            sumValue()
+        }
+        function leftDownButton() {
+            
+            if (tempj == 1 || tempi == userEnteredFirstValue) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj - 1;
+                tempi = tempi + 1;
+            }
+
+
+            sumValue()
+        }
+        function rightDownButton() {
+          
+            if (tempj == userEnteredSecondValue || tempi == userEnteredFirstValue) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj + 1;
+                tempi = tempi + 1;
+            }
+
+
+            sumValue()
+        }
+        function sumValue() {
+            if (randomi == tempi && randomj == tempj) {
+                sum = sum + 1;
+                randomi = Math.floor( 1 + Math.random() * 27);
+                 randomj = Math.floor(1 + Math.random() * 27);
+            }
+            document.getElementById("displaySum").innerHTML = sum;
+            genrateTable()
+        }
+        
+        document.addEventListener("keydown", function(event) {
+         if (event.key == "ArrowLeft"){
+        leftButton() ;
+         }
+         if (event.key == "ArrowRight"){
+            rightButton();
+         }
+         if (event.key == "ArrowUp"){
+            upButton();
+         }
+         if (event.key == "ArrowDown"){
+            downButton();
+         }
+      });
+        // function genrateRandomValue(){
+        //     if (randomi == tempi && randomj == tempj) {
+        //         randomi = Math.floor( 1 + Math.random() * 27);
+        //          randomj = Math.floor(1 + Math.random() * 27);
+        //     }
+        //     genrateTable()
+        // }
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+++++
+
+
+
++--------------------------9+66666666666666666666666666666666666666666++
+
+
+</body>
+
+</html>------------------------------------------------

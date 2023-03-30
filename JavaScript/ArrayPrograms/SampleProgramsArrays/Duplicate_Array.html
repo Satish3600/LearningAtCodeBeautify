@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="userEnteredFirstValue" class="input is-large">
+        <div class="column has-text-centered">
+            <button onclick="addArray()" class="button is-info">Adding Array</button>
+        </div>
+        <p id="printTable"></p>
+    </div>
+        
+    <script>
+        var createArray = [];
+        var  index = 0;
+        function addArray(){
+                let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+                flag = false;
+                for(index=0; index<createArray.length; index++){
+                    if( createArray[index] == userEnteredFirstValue){
+                        alert("Duplicate Value")
+                        flag = true;
+                    } 
+                }
+                if(flag != true){
+                    createArray[index] = userEnteredFirstValue;
+
+                    index = index + 1;
+                }
+                genrateTable();
+            }
+        function genrateTable(){
+            let stringTable = '<table class="table is-bordered"><tr><th>Index Value</th><th>Array Value</th></tr>';
+                for( index=0; index<createArray.length; index++){
+                    stringTable = stringTable + "<tr><td>" + index + "</td>" + "<td>" +  createArray[index] + "</td></tr>";
+                }
+                document.getElementById("printTable").innerHTML = stringTable;
+        }
+    </script>
+
+
+</body>
+
+</html>

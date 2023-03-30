@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Sum With Function</title>
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="UserEnteredFirstValue" value="5">
+        <input type="text" id="UserEnteredSecondValue" value="10">
+        <div onclick="calculateSum()" class="column has-text-centered">
+            <button class="button is-info">
+                Click
+            </button>
+        </div>
+        <input type="text" id="answer" class="input is-large">
+
+
+    </div>
+
+    <script>
+        // function calculateSum() {
+        //     firstValue = Number(document.getElementById("UserEnteredFirstValue").value);
+        //     secondValue = Number(document.getElementById("UserEnteredSecondValue").value);
+
+        //     var sum = getSum(firstValue, secondValue)
+        //     console.log(sum)
+        //     document.getElementById("answer").value = sum;
+
+        // }
+        // function getSum(firstValue, secondValue) {
+        //     return firstValue+secondValue;
+        // }
+
+
+        function calculateSum() {
+            firstValue = Number(document.getElementById("UserEnteredFirstValue").value);
+            secondValue = Number(document.getElementById("UserEnteredSecondValue").value);
+            var sum = getSumBetween(firstValue, secondValue);
+            console.log(sum)
+            document.getElementById("answer").value = sum;
+        }
+
+
+        function getSumBetween(firstValue, secondValue) {
+            // var sum = getSum(firstValue, secondValue)
+            sum = 0;
+            for (i = firstValue; i <= secondValue; i++) {
+                var sum = sum + i;
+            }
+            return sum;
+
+
+        }
+
+    </script>
+
+
+
+
+</body>
+
+</html>

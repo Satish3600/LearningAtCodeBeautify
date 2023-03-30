@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="userEnteredValue" class="input is-large" placeholder="Entrer The Value">
+        <div class="column has-text-centered">
+            <button onclick="addInArray()" class="button is-info">Adding Array</button>
+            <button onclick=" printAlltheNumbers()" class="button is-info">Print Array</button>
+        </div>
+        <p id="printTable"></p>
+        <p id="printTable1"></p>
+    </div>
+
+    <script>
+        var createArray = [];
+        var i = 0;
+        function addInArray() {
+            let userEnteredValue = Number(document.getElementById("userEnteredValue").value);
+            let flag = false;    
+
+            for(let i=0;i<createArray.length;i++){
+               // console.log(createArray[i]);
+
+                if(createArray[i]==userEnteredValue){
+                    console.log(userEnteredValue+" is avaialable in array");
+                    flag = true;
+                    break;
+                }
+
+            }
+
+            if(flag!=true){
+
+                createArray[i] = userEnteredValue;
+                 i = i + 1;
+
+            }
+
+         
+
+            genrateTable()
+        }
+        function genrateTable() {
+            let stringTable = '<table class="table is-bordered"><tr><th>Index Value</th><th>Array Value</th></tr>';
+            for (let i = 0; i < createArray.length; i++) {
+                stringTable = stringTable + "<tr><td>" + i + "</td>" + "<td>" + createArray[i] + "</td></tr>";
+
+                console.log(createArray[i])
+            }
+            document.getElementById("printTable").innerHTML = stringTable;
+            printAlltheNumbers()
+        }
+        function printAlltheNumbers() {
+    
+           
+
+            for(let i=0;i<createArray.length;i++){
+                console.log(createArray[i]);
+            }
+
+            }
+    </script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        Rows <input type="text" id="first" value="5" class="input is-small">
+        Columns <input type="text" id="second" value="10" class="input is-small">
+        <div class="column has-text-centered">
+            <button onclick="satish()" class="button is-info is-small">AddTable</button>
+            <div class="container table-container">
+                <table class="table is-bordered">
+                    <thead>
+                    <tbody id="tap">
+                    </tbody>
+                </table>
+            </div>
+    <script>
+        function satish() {
+            let a = Number(document.getElementById("first").value);
+            let b = Number(document.getElementById("second").value);
+            let  s = ' <table class="table is-bordered"><tr>';
+                let plus = 0;
+          // let p = '<td></td>';
+            for (i = 0; i <  a; i++) {
+              //  s = s + "<td>" + i  + "</td>";
+                for (j = 0; j < b-1; j++) {
+                    plus = plus +1;
+                    s = s + "<td>" + plus + "</td>";
+                }
+                s = s + "</tr>";
+            }
+            document.getElementById("tap").innerHTML = s;
+        }
+
+// function satish(){
+  
+
+// //r = window.prompt("Input number of rows", 1);
+// var a = Number(document.getElementById("first").value);
+// //cn = window.prompt("Input number of columns",1);
+// var b = Number(document.getElementById("second").value);
+  
+//  for(var a=0;a<parseInt(rn,10);a++)
+//   {
+//    var x=document.getElementById('myTable').insertRow(r);
+//    for(var c=0;c<parseInt(cn,10);c++)  
+//     {
+//      var y=  x.insertCell(c);
+//      y.innerHTML="Row-"+r+" Column-"+c; 
+//     }
+//    }
+// }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
+<!-- <table class="table is-bordered"> -->
+    <!-- <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>6</td>
+        <td>7</td>
+        <td>8</td>
+    </tr>
+</table> -->

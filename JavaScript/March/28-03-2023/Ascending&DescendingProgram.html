@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="first" value="3" class="input is small" placeholder="Enter The First Value">
+        <input type="text" id="second" value="5" class="input is small" placeholder="Enter The Second Value">
+        <input type="text" id="third" value="6" class="input is small" placeholder="Enter The Third Value">
+
+        <div class="column has-text-centered">
+            <button onclick="ASE()" class="button is-info">ASE</button>
+            <button onclick="DSE()" class="button is-info">DSE</button>
+        </div>
+
+        <input type="text" id="answer1" class="input is large" placeholder="Please Check The Results">
+        <input type="text" id="answer2" class="input is large" placeholder="Please Check The Results">
+
+    </div>
+    <script>
+
+        function DSE() {
+            var a = Number(document.getElementById("first").value);
+            var b = Number(document.getElementById("second").value);
+            var c = Number(document.getElementById("third").value);
+            if (a > b && a > c) {
+                document.getElementById("answer1").value = a;
+            }
+            if (b > a && b > c) {
+                document.getElementById("answer1").value = b;
+            }
+            if (c > a && c > b) {
+                document.getElementById("answer1").value = c;
+            }
+
+
+
+
+            if (a < b && a < c) {
+                document.getElementById("answer2").value = a;
+            }
+            if (b < a && b < c) {
+                document.getElementById("answer2").value = b;
+            }
+            if (c < a && c < b) {
+                document.getElementById("answer2").value = c;
+            }
+
+
+
+            if (a == c && c == a) {
+                document.getElementById("answer2").value = a;
+            }
+            if (b == c && c == b) {
+                document.getElementById("answer2").value = c;
+            }
+            if (a == b && b == c) {
+                alert("Please Do Not Enter The Same Value ")
+                document.getElementById("answer1").value = a;
+                document.getElementById("answer2").value = c;
+            }
+        }
+
+        function ASE() {
+            var a = Number(document.getElementById("first").value);
+            var b = Number(document.getElementById("second").value);
+            var c = Number(document.getElementById("third").value);
+            if (a < b && a < c) {
+                document.getElementById("answer1").value = a;
+            }
+            if (b < a && b < c) {
+                document.getElementById("answer1").value = b;
+            }
+            if (c < a && c < b) {
+                document.getElementById("answer1").value = c;
+            }
+
+        
+
+
+
+            if (a == b && b == a) {
+                document.getElementById("answer1").value = a;
+            }
+            if (a == c && c == a) {
+                document.getElementById("answer1").value = a;
+            }
+            if (b == c && c == b) {
+                document.getElementById("answer1").value = a;
+            }
+            if (a == b && b == a) {
+                document.getElementById("answer1").value = c;
+                document.getElementById("answer2").value = a;
+            }
+            if (a == c && c == a) {
+                document.getElementById("answer2").value = a;
+            }
+            if (b == c && c == b) {
+                document.getElementById("answer1").value = c;
+                document.getElementById("answer2").value = a;
+            }
+            
+
+            if (a == b && b == c) {
+                alert("Please Do Not Enter The Same Value ")
+                document.getElementById("answer1").value = a;
+                document.getElementById("answer2").value = c;
+            }
+
+
+
+
+            if (a > b && a > c) {
+                document.getElementById("answer2").value = a;
+            }
+            if (b > a && b > c) {
+                document.getElementById("answer2").value = b;
+            }
+            if (c > a && c > b) {
+                document.getElementById("answer2").value = c;
+            }
+           
+
+
+        }
+
+    </script>
+</body>
+
+</html>

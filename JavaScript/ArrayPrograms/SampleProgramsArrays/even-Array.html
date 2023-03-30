@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+</head>
+<body>
+    <div class="container p-5">
+        <div class="column has-text-centered">
+            <button onclick="sumOfArray()" class="button is-info">Sum</button>
+        </div>
+<p id="printArray"></p>
+<p id="printArraySum"></p>
+<p id="printArraySum1"></p>
+    </div>
+<script>
+    var arrayCreate = [];
+    function createArrayRandomValue(){
+        let counter = 0;
+        let stringTable = '<table class="table is-bordered" <tr><th>IndexValue</th><th>Array Value</th></tr>';
+            for(let i=0; ; i++){
+                arrayCreate[counter]  = Math.floor(Math.random() * 100);
+                if (arrayCreate[counter] %2 != 0){
+                    stringTable = stringTable + "<tr><td>" + counter + "</td>" + "<td>" + arrayCreate[counter] + "</td></tr>";
+                    counter++;
+                }
+                if(counter == 10){
+                    break;
+                }
+                
+            }
+            document.getElementById("printArray").innerHTML = stringTable;
+    }
+    createArrayRandomValue();
+    function sumOfArray(){
+        let sum = 0;
+        for (let i=0; i<arrayCreate.length; i++){
+            sum = sum + arrayCreate[i];
+            console.log (sum)
+        }
+        document.getElementById("printArraySum").innerHTML = sum;
+        // let sum = 0;
+        // let stringSum = "";
+        // for (let i=0; i<arrayCreate.length; i++){
+        //     sum = sum + arrayCreate[i];
+        //     stringSum =stringSum +  arrayCreate[i] + "+";
+        //     console.log(stringSum)
+        // }
+        // document.getElementById("printArraySum").innerHTML = sum;
+        // document.getElementById("printArraySum1").innerHTML = stringSum;
+    }
+</script>
+</body>
+</html>

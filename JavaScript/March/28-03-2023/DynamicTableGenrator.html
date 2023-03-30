@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    Enter Velue: <input id="first" type="text" class="input is-large"
+        placeholder="Enter The Value & Get Result As a Tree Star Pattern">
+    <div class="column has-text-centered">
+        <button onclick="diss()" class="button is-info">Click</button>
+        <div class="container table-container">
+            <table class="table is-bordered">
+                <thead>
+                <tbody id="tab">
+                </tbody>
+            </table>
+        </div>
+
+
+        <script>
+            function diss() {
+
+                let n = Number(document.getElementById("first").value);
+                let p = "";
+                let m = 10;  
+                for (i = 1; i <= m; i++) {   
+                    multitbl = "";
+                    for (j = 1; j <= n; j++) {
+                        multitbl = multitbl + "<td>" + j + "*" + i + "="  + "</td>" + "<td>" + (i * j) + "</td>";
+                    }
+                    p = p + "<tr>" + multitbl + "</tr>";
+                }
+                document.getElementById("tab").innerHTML = p;
+            }
+        </script>
+</body>
+
+</html>
+ 

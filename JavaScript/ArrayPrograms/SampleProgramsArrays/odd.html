@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="columnm has-text-centered">
+            <button onclick="sum_of_Array()" class="button is-info">Sum</button>
+        </div>
+        <p id="print_random-Array"></p>
+        <p id="print_sum_ofArray"></p>
+        <p id="print_stringsum_ofArray"></p>
+    </div>
+    <script>
+        var arrayCreate = [];
+        function create_Array_random_value() {
+            let stringTable = '<table class="table is-bordered"><tr><th>Index Value</th><th>Array Value</th></tr>';
+            let counter =0;
+            for (let i = 0; ; i++) {
+                  arrayCreate[counter] = Math.floor(Math.random() * 100);
+                    stringTable = stringTable + "<tr><td>" + counter + "</td>" + "<td>" + arrayCreate[counter] + "</td></tr>";
+                    counter =counter + 1;
+                    console.log(counter);
+                
+                    if(counter==10){
+                        break;
+                    }
+                }
+            document.getElementById("print_random-Array").innerHTML = stringTable;
+        }
+        create_Array_random_value();
+    
+
+
+        function sum_of_Array() {
+            create_Array_random_value();
+            let sum_String = 0;
+            let sum_display_value = "";
+            for (let i = 0; i < arrayCreate.length; i++) {
+                sum_String = sum_String + arrayCreate[i];
+                sum_display_value = sum_display_value + arrayCreate[i] + "+";
+            }
+          //  document.getElementById("print_stringsum_ofArray").innerHTML= "Total Array Value Sum is >  " + sum_String ;
+            //  document.getElementById("print_sum_ofArray").innerHTML=sum_display_value ;
+        }
+        
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=d    evice-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Star Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1 class="title has-text-centered">Star Game</h1>
+            <div class="columns">
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label is-size-4">Enter Row </label>
+                        <div class="control">
+                            <input type="text" id="userEnteredFirstValue" class="input is-small is-info" value="5">
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label is-size-4">Enter Column</label>
+                        <div class="control">
+                            <input type="text" id="userEnteredSecondValue" class="input is-small is-info" value="5">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-centered is-12">
+                <div class="field">
+                    <label class="label is-size-4">Enter Limit </label>
+                    <div class="control">
+                        <input type="text" id="userEnteredThirdValue" class="input is-small is-info" value="3">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block">
+            <div class="field mt-5 mb-5">
+                <div class="control has-text-centered">
+                    <button onclick="genrateTable()" class="button is-small is-danger has-text-weight-bold">Generate
+                        Table</button>
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column is-3"></div>
+            <div class="column is-6">
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button onclick="leftUpperButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">LeftUpper</button>
+                        <button onclick="upButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Up</button>
+                        <button onclick="rightUpperButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">RightUpper</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button onclick="leftButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Left</button>
+                        <button class="button is-small is-white has-text-weight-bold has-text-white">1</button>
+                        <button onclick="rightButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Right</button>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control has-text-centered">
+                        <button onclick="leftDownButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">LeftDown</button>
+                        <button onclick="downButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">Down</button>
+                        <button onclick="rightDownButton()" id=""
+                            class="button is-small is-primary has-text-weight-bold">RightDown</button>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-3"></div>
+        </div>
+        <div class="block">
+            <p id="displayTable" class="has-text-weight-semibold"></p>
+        </div>
+    </div>
+    </div>
+    <script>
+        let tempi = 1;
+        let tempj = 1;
+        let randomi = getRandomNumberBeetween(1,16);
+        let randomj = getRandomNumberBeetween(1,16);
+        function genrateTable() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value);
+            stringTable = '<table class="table is-bordered"><tr>';
+            for (let i = 1; i <= userEnteredFirstValue; i++) {
+                for (let j = 1; j <= userEnteredSecondValue; j++) {
+                    if (i == tempi && j == tempj) {
+                        stringTable = stringTable + '<td>' + "G" + '</td>';
+                    }
+                    else if (i == randomi && j == randomj) {
+                        stringTable = stringTable + '<td>' + "*" + '</td>';
+                    }
+                    else {
+                        stringTable = stringTable + '<td>' + '</td>';
+                    }
+                }
+                stringTable = stringTable + '</tr>';
+            }
+            document.getElementById("displayTable").innerHTML = stringTable;
+        }
+        function leftButton() {
+            if (tempj == 1) {
+                alert("Boundry Limit Over")
+            }
+             else {
+
+            tempj = tempj - 1;
+            
+            }
+            genrateTable()
+        }
+        function rightButton() {
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            if (tempj == userEnteredSecondValue) {
+                alert("Boundry Limit Over")
+            }
+            else {
+            tempj = tempj + 1;
+
+               }
+            genrateTable()
+        }
+        function upButton() {
+            if (tempi == 1) {
+                alert("Boundry Limit Over")
+           
+            }
+            else {
+                tempi = tempi - 1;
+                console.log(tempi)
+            }
+            genrateTable()
+        }
+        function downButton() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            if (tempi == userEnteredFirstValue) {
+                alert("Boundry Limit Over")
+            
+
+            }
+           else {
+                tempi = tempi + 1;
+                console.log(tempi)
+           }
+            genrateTable()
+        }
+        function leftUpperButton() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            if (tempj == 1 || tempi == 1) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj - 1;
+                tempi = tempi - 1;
+            }
+
+            genrateTable()
+        }
+        function rightUpperButton() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value);
+            if (tempi == 1 || tempj == userEnteredSecondValue) {
+                alert("Boundry Limit Over")
+
+            }
+            else {
+                tempj = tempj + 1;
+                tempi = tempi - 1;
+            }
+
+
+            genrateTable()
+        }
+        function leftDownButton() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value);
+            if (tempj == 1 || tempi == userEnteredFirstValue) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj - 1;
+                tempi = tempi + 1;
+            }
+
+
+            genrateTable()
+        }
+        function rightDownButton() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value);
+            if (tempj == userEnteredSecondValue || tempi == userEnteredFirstValue) {
+                alert("Boundry Limit Over")
+            }
+            else {
+                tempj = tempj + 1;
+                tempi = tempi + 1;
+            }
+
+
+            genrateTable()
+        }
+
+        function getRandomNumberBeetween(){
+            return 5;
+        }
+    </script>
+</body>
+
+</html>

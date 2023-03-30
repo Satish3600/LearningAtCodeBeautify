@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <div class="container p-5">
+        <input type="text" id="firstValue" class="input is-large" value="10">
+        <div class="column has-text-centered">
+            <button onclick="naturalNumber()" class="button is-info">Check</button>
+        </div>
+        <p id="print"></p>
+        <p id="print1"></p>
+        <p id="print2"></p>
+    </div>
+    <script>
+            naturalNumber()
+        function naturalNumber() {
+                let  firstValue =  Number(document.getElementById("firstValue").value);
+                let n1=0;
+                let n2=1;
+                nextTerm = 0;
+               // stringS = "";
+                sum = 0;
+                for( i =1; nextTerm<4000000; i++){
+                    nextTerm = n1+n2;
+                    n1 =n2;
+                    n2 = nextTerm;    
+                   //stringS = stringS + n2 + "+";
+                    if(n2%2 ==0){
+                        sum = sum + n2;
+                    }
+                }
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                document.getElementById("print").innerHTML = "last i value:->" +i;
+                document.getElementById("print1").innerHTML = "Last n2 value:->"+n2;
+                document.getElementById("print2").innerHTML = "Fibo Sum value:->"+sum;
+        }
+    
+    </script>
+</body>
+
+</html> 
+<!-- let n1=0;
+let n2=1;
+nextTerm = 0;
+// stringS = "";
+sum = 0;
+i=1;
+while( nextTerm<4000000)
+{
+    nextTerm = n1+n2;
+    n1 =n2;
+    n2 = nextTerm;
+    
+    //stringS = stringS + n2 + "+";
+    if(n2%2 ==0){
+        sum = sum + n2;
+    }
+
+    i++;
+} -->

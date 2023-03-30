@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="userEnteredValue" class="input is-large" placeholder="Entrer The Value">
+        <div class="column has-text-centered">
+            <button onclick="addInArray()" class="button is-info">Adding Array</button>
+        </div>
+        <p id="printTable"></p>
+
+    </div>
+
+    <script>
+        var createArray = [];
+        var i = 0;
+        function addInArray() {
+            let userEnteredValue = Number(document.getElementById("userEnteredValue").value);
+            let flag = false;
+            for (let i = 0; i < createArray.length; i++) {
+                if (createArray[i] == userEnteredValue) {
+                    alert("THis is  a repeat Value")
+                    flag = true;
+
+                }
+            }
+            if (flag != true) {
+                createArray[i] = userEnteredValue;
+                i = i + 1;
+            }
+            genrateTable()
+        }
+        function genrateTable() {
+            let stringTable = '<table class="table is-bordered"><tr><th>Index Value</th><th>Array Value</th></tr>';
+            for (let i = 0; i < createArray.length; i++) {
+                stringTable = stringTable + "<tr><td>" + i + "</td>" + "<td>" + createArray[i] + "</td></tr>";
+
+                console.log(createArray[i])
+            }
+            document.getElementById("printTable").innerHTML = stringTable;
+
+        }
+
+    </script>
+</body>
+
+</html>

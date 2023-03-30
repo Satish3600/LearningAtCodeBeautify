@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <div class="container p-5">
+    <h2 class="title is-2 has-text-centered">Image Genrator</h2>
+     <b> Please Enter Value For Display Image: </b><input id="first" type="text" class="input is-large" placeholder="How Many Images You Want?">
+     <div class="column has-text-centered"><br>
+        <button onclick="photos()" class="button is-info" >Click</button>
+     </div>
+     <p id="printphotos"></p>
+     <!-- <p class="column has-text-centered">
+        <img src="/learning/javascript/date-04-02-23/image/image1.png" alt=""> <br>
+        <img src="/learning/javascript/date-04-02-23/image/image2.png" alt=""><br>
+        <img src="/learning/javascript/date-04-02-23/image/image3.png" alt=""><br>
+        <img src="/learning/javascript/date-04-02-23/image/image4.png" alt=""><br>
+        <img src="/learning/javascript/date-04-02-23/image/image5.png" alt=""><br>
+     </p> -->
+     <img src="/" alt="">
+     <script>
+        function photos(){
+            var first = Number(document.getElementById("first").value);
+            var strPhoto = ' <table class="table  is-bordered"><tr>';
+                for(i =1; i<=first; i++ ){
+                    strPhoto = strPhoto +"<tr><td>"+  "<img src='/learning/javascript/date-04-02-23/image/image"+i+".png' >" +"</td></tr>";
+                    
+                }
+                document.getElementById("printphotos").innerHTML = strPhoto;
+        }
+     </script>
+
+
+
+</div>
+</body>
+</html>
+<!-- <table class="table  is-bordered">
+    <tr>
+        <td><img src="/learning/javascript/date-04-02-23/image/image1.png" alt=""></td>
+    </tr> 
+</table>

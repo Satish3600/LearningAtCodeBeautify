@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="FirstValue" placeholder="Enter The Value" value="" class="input is-large">
+        <input type="text" id="SecondValue" placeholder="Enter The Value" class="input is-large">
+
+        <div class="column has-text-centered">
+            <button onclick="DrawTable()" class="button is-info">DrawTable</button>
+            <button onclick="SelectEvenRow()" class="button is-info">SelectEvenRow</button>
+            <button onclick="PrimeNumber()" class="button is-info">PrimeNumber</button>
+        </div>
+        <!-- //<p id="printplace"></p> -->
+        <div class="container table-container">
+            <table class="table is-bordered">
+                <thead>
+                <tbody id="printplace">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        var firstinputvalue = Number(document.getElementById("FirstValue").value);
+
+        function DrawTable() {
+            //  var firstinputvalue = Number(document.getElementById("FirstValue").value);
+            var firstinputvalue = Number(document.getElementById("FirstValue").value);
+
+            var temp1 = firstinputvalue;
+            console.log(firstinputvalue)
+            var stringTable = ' <div class="table-container"><table class="table is-bordered is-fullwidth is-hoverable is-striped"><tr></tr>';
+
+            for (i = 1; i <= temp1; i++) {
+                stringTable = stringTable + "<td>" + i;
+
+
+            }
+            //stringTable = stringTable + "</td> "+ "</tr>" +  "</table>";
+            document.getElementById("printplace").innerHTML = stringTable;
+        }
+        // class='is-selected'
+        function SelectEvenRow() {
+            var firstinputvalue = Number(document.getElementById("FirstValue").value);
+
+            var temp1 = firstinputvalue;
+            var secondinputvalue = Number(document.getElementById("SecondValue").value);
+            var temp3 = secondinputvalue;
+
+
+            var stringTable = '<table class="table is bordered is-fullwidth"><tr><td> </td></tr>';
+            for (i = 1; i <= temp1; i++) {
+                if (i % temp3 == 0) {
+                    stringTable = stringTable + "<td class='is-selected'>" + i;
+                }
+                else {
+                    stringTable = stringTable + "<td>" + i;
+                }
+            }
+
+            document.getElementById("printplace").innerHTML = stringTable;
+
+        }
+        function PrimeNumber() {
+            var firstinputvalue = Number(document.getElementById("FirstValue").value);
+            var temp1 = firstinputvalue;
+            var stringTable = '<table class="table is bordered is-fullwidth"><tr><td> </td></tr>';
+            for (i = 1; i <= temp1; i++) {
+                
+              // stringTable = stringTable + "<td class='is-selected'>" + i;
+                    if(i/2==0){
+                        console.log(i/2)
+                        stringTable = stringTable + "<td>" + i;
+                    }
+                    else{
+                            stringTable = stringTable + "<td class='is-selected'>" + i;
+                    }
+            }
+            document.getElementById("printplace").innerHTML = stringTable;
+        }
+    </script>
+</body>
+
+</html>

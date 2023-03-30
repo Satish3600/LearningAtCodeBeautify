@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+<body>
+    <div class="container p-5">
+<h2 class="title is-2 has-text-centered">Dynamic Number Table</h2>
+<input  id="first" type="text" class="input is-large" placeholder="Put Value for draw table">
+
+<div class="column has-text-centered">
+<button onclick="mumbai()" class="button is-info">DrawTable</button>
+<button onclick="mumba()" class="button is-info">AddMoreLine</button>
+</div>
+<p id="bombay"></p>
+</div>
+<script>
+ function mumbai(){
+ let a = parseInt(document.getElementById("first").value);
+ let strDiv = '<table class="table is-fullwidth is-bordered"><tr><th>Number</th><tr>';
+    for(i = 1; i<=a; i++){
+        strDiv = strDiv + "<tr><td>" + i + "</td></td>";
+    }
+  document.getElementById("bombay").innerHTML=strDiv;
+    }
+    
+    function mumba(){
+    s  = i;
+    //  console.log(a)
+     let strDiv = '<table class="table is-fullwidth is-bordered"><tr><th>Number</th><tr>';
+        for(i = 1; i<=s; i++){
+        strDiv = strDiv + "<tr><td>" + i + "</td></td>";
+    }
+  document.getElementById("bombay").innerHTML=strDiv;
+
+         
+    }
+</script>
+
+
+    
+</body>
+</html>

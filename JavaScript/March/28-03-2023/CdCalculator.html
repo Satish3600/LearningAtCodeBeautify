@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Cd Calculator</title>
+</head>
+
+<body>
+    <div class="container p-5">
+        <div class="columns">
+            <div class="column">
+                <div>
+                    <h6 class="title is-size-3 has-text-link"> <b> CD Calculator </b></p>
+                    </h6>
+                </div>
+                <div class="card">
+                    <div class="card-Header">
+                    </div>
+                    <div class="card-content">
+                        Initial Deposit: <input type="text" id="firstvalue" value="1000"><br>
+                        Interest Rate: <input type="text" id="secondvalue" value="5">
+                        <div class="column has-text-centered">
+                            <button onclick="calculate()" class="button is-success">Calculate</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card">
+                    <div class="card-Header">
+                        <h6 class="title is-size-3 has-text-white  has-background-success"> <b> Rsults </b></p>
+                        </h6>
+                    </div>
+                    <div class="card-content">
+                        End Balance: <input type="text" id="endbalance"><br>
+                        Total Pincipal: <input type="text" id="principal"><br>
+                        Total interest: <input type="text" id="interest1">
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Use For Third Column -->
+            <div class="column"></div>
+            <!-- End use for third column -->
+        </div>
+        <!-- <div>
+            <table id="finTable"></table>
+        </div> -->
+        <div class="table-container">
+            <table class="table is-bordered">
+                <thead></thead>
+                <tbody id="finTable"></tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <script>
+        function calculate() {
+            var firstvalue = Number(document.getElementById("firstvalue").value);
+            first = firstvalue;
+            var secondvalue = Number(document.getElementById("secondvalue").value);
+            rate = secondvalue;
+            rate = first * rate / 100;
+            sum = rate + first;
+            document.getElementById("principal").value = first;
+            document.getElementById("interest1").value = rate;
+            document.getElementById("endbalance").value = sum;
+            drawTable();
+        }
+        function drawTable() {
+            let finTableStr = "<tr> <td></td><td><b>start principal</b></td><td><b>start balance</b></td><td><b>interest</b></td><td><b>tax</b></td><td><b>end balance</b></td><td><b>end principal</b></td></tr>";
+
+            for (i = 1; i <= 12; i++) {
+                
+                multitbl = "";
+                multitbl = multitbl + "<td>" + i + "</td>" + "<td>" + first + "</td>" + "<td>" + "0"+ "</td>" + "<td>" + "0" + "</td>" + "<td>" + "0.00" + "</td>" + "<td>" + "0" + "</td>" + "<td>" + first + "</td>";
+                for (j = 1; j <= 7; j++) {
+                    // multitbl = multitbl + "<td>" + i + "</td>" ;
+                
+                }
+                finTableStr = finTableStr + "<tr>" + multitbl + "</tr>";
+            }
+            document.getElementById("finTable").innerHTML = finTableStr;
+        }
+    </script>
+</body>
+</html> <b></b>

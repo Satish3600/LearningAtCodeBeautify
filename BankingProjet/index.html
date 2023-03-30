@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <title>Folk Finance Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+        });
+    </script>
+    <div class="container p-5">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item">
+                    <img src="/BankingProjet/BankingProjectImage/logo.svg" alt="site logo" style="max-height:100px">
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item">
+                        About
+                    </a>
+                    <a class="navbar-item">
+                        Loan Calculator
+                    </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Loan
+                        </a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item">
+                                Personal Loan
+                            </a>
+                            <a class="navbar-item">
+                                Home Loan
+                            </a>
+                            <a class="navbar-item">
+                                Car Loan
+                            </a>
+                            <a class="navbar-item">
+                                Buisness Loan
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Repoprt an issue
+                            </a>
+                        </div>
+
+                    </div>
+                    <a class="navbar-item">
+                        Contact Us
+                    </a>
+
+                    <div class="buttons my-1">
+                        <a>
+                            Ragister
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+        <!-- <hr class="navbar-divider m-0"> -->
+
+        <div class="columns">
+            <div class="column">
+                <section class="hero is-medium ">
+                    <div class="hero-body">
+                        <p class="title is-3">
+                            <b>
+                                Next genration <br>
+                                digital banking
+                        </p>
+                        </b>
+
+                        <p class="subtitle">
+                            Take your financial life online. Your folk finance bank account will be a one-stop-shop for
+                            spending, saving, budgeting, investing , and much more.
+                        </p>
+                        <button class="button">Request Invite</button>
+                    </div>
+                </section>
+            </div>
+            <div class="column">
+                <section class="hero is-small  ">
+                    <div class="hero-body">
+                        <img src="/BankingProjet/BankingProjectImage/image-mockups.png" alt="">
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="line-color">
+            <section class="section is-medium  py-1">
+                <h1 class="title is-3 py-5">Why Choose Easybank?</h1>
+                <h2 class="subtitle p-0">
+                    We leverage open banking to turn your bank account into your financial hub. <br> Control your
+                    finances
+                    like never before
+                </h2>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="columns pt-6">
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="has-text-left ">
+                                        <!-- <span class="icon is-size-1 py-6 my-3"> -->
+                                        <!-- <i class="fas fa-code"></i> -->
+                                        <img src="/BankingProjet/BankingProjectImage/icon-online.svg" alt=""
+                                            style="max-height:90px">
+                                        <!-- </span> -->
+                                    </div>
+
+                                    <p class="title is-4 py-2">
+                                        <b> Online Banking</b>
+                                    </p>
+                                    <div class="content py-0">
+                                        Our modern web and mobile<br />
+                                        applications allow you to keep<br />
+                                        track of your finances whereever<br />
+                                        you are in the world.
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="has-text-left">
+                                        <!-- <span class="icon is-size-1 py-6 my-3">
+                                            <i class="fas fa-paint-brush"></i>
+                                        </span> -->
+                                        <img src="/BankingProjet/BankingProjectImage/icon-budgeting.svg" alt=""
+                                            style="max-height:90px">
+                                    </div>
+
+                                    <p class="title is-4 py-2">
+                                        <b>Simple Budgeting</b>
+                                    </p>
+                                    <div class="content p-0">
+                                        See exactly where your money
+                                        goes every month.Recieve
+                                        notifications when you're close to
+                                        hitting your limits.
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="has-text-left">
+                                        <!-- <span class="icon is-size-1 py-6 my-3">
+                                            <i class="fas fa-paint-brush"></i>
+                                        </span> -->
+                                        <img src="/BankingProjet/BankingProjectImage/icon-onboarding.svg" alt=""
+                                            style="max-height:90px">
+                                    </div>
+
+                                    <p class="title is-4 py-2">
+                                        <b>Fast Onboaring</b>
+                                    </p>
+                                    <div class="content p-0">
+                                        We don't do branches.Open your
+                                        accound minutes online and start
+                                        taking controll of your finances
+                                        right away
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="has-text-left">
+                                        <!-- <span class="icon is-size-1 py-6 my-3">
+                                            <i class="fas fa-paint-brush"></i>
+                                        </span> -->
+                                        <img src="/BankingProjet/BankingProjectImage/icon-api.svg" alt=""
+                                            style="max-height:90px">
+                                    </div>
+
+                                    <p class="title is-4 py-2">
+                                        <b> Open API </b>
+                                    </p>
+                                    <div class="content p-0">
+                                        Manage your savings, investments, and much more from one
+                                        account.Tracking your money has
+                                        never been easier.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <section class="section is-medium  py-0">
+                <h1 class="title is-1 pt-5 px-0 "> <b> Latest Articles </b> </h1>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="columns ">
+                        <div class="column">
+                            <div class="card">
+                                <!-- <div class="card-content"> -->
+                                <div class="has-text-left ">
+                                    <!-- <span class="icon is-size-1 py-6 my-3"> -->
+                                    <!-- <i class="fas fa-code"></i> -->
+                                    <img src="/BankingProjet/BankingProjectImage/image-currency.jpg" alt=""
+                                        style="max-height:250px ">
+                                    <!-- </span> -->
+                                </div>
+                                <div class="card-content">
+                                    <p class="subtitle is-6 ">Satish Patel<br>
+                                        <b> Recieve money in any
+                                            currency with no fees </b> <br>
+                                        The world is getting smaller and
+                                        we are becoming more mobile.So,
+                                        why should you be forced to only
+                                        recieve money in a single...
+                                    </p>
+                                    <!-- <p class="subtitle is-6 ">Satishjmbjhjnb Patel</p>
+                                    <div class="content py-0">
+                                        Our modern web and mobile<br />
+                                        applications allow you to keep<br />
+                                        track of your finances whereever<br />
+                                        you are in the world.
+
+                                    </div> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <!-- <div class="card-content"> -->
+                                <div class="has-text-left ">
+                                    <!-- <span class="icon is-size-1 py-6 my-3"> -->
+                                    <!-- <i class="fas fa-code"></i> -->
+                                    <img src="/BankingProjet/BankingProjectImage/image-currency.jpg" alt=""
+                                        style="max-height:250px ">
+                                    <!-- </span> -->
+                                </div>
+                                <div class="card-content">
+                                    <p class="subtitle is-6 ">Satish Patel<br>
+                                        <b> Recieve money in any
+                                            currency with no fees </b> <br>
+                                        The world is getting smaller and
+                                        we are becoming more mobile.So,
+                                        why should you be forced to only
+                                        recieve money in a single...
+                                    </p>
+                                    <!-- <p class="subtitle is-6 ">Satishjmbjhjnb Patel</p>
+                                    <div class="content py-0">
+                                        Our modern web and mobile<br />
+                                        applications allow you to keep<br />
+                                        track of your finances whereever<br />
+                                        you are in the world.
+
+                                    </div> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <!-- <div class="card-content"> -->
+                                <div class="has-text-left ">
+                                    <!-- <span class="icon is-size-1 py-6 my-3"> -->
+                                    <!-- <i class="fas fa-code"></i> -->
+                                    <img src="/BankingProjet/BankingProjectImage/image-currency.jpg" alt=""
+                                        style="max-height:250px ">
+                                    <!-- </span> -->
+                                </div>
+                                <div class="card-content">
+                                    <p class="subtitle is-6 ">Satish Patel<br>
+                                        <b> Recieve money in any
+                                            currency with no fees </b> <br>
+                                        The world is getting smaller and
+                                        we are becoming more mobile.So,
+                                        why should you be forced to only
+                                        recieve money in a single...
+                                    </p>
+                                    <!-- <p class="subtitle is-6 ">Satishjmbjhjnb Patel</p>
+                                    <div class="content py-0">
+                                        Our modern web and mobile<br />
+                                        applications allow you to keep<br />
+                                        track of your finances whereever<br />
+                                        you are in the world.
+
+                                    </div> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="card">
+                                <!-- <div class="card-content"> -->
+                                <div class="has-text-left ">
+                                    <!-- <span class="icon is-size-1 py-6 my-3"> -->
+                                    <!-- <i class="fas fa-code"></i> -->
+                                    <img src="/BankingProjet/BankingProjectImage/image-currency.jpg" alt=""
+                                        style="max-height:250px ">
+                                    <!-- </span> -->
+                                </div>
+                                <div class="card-content">
+                                    <p class="subtitle is-6 ">Satish Patel<br>
+                                        <b> Recieve money in any
+                                            currency with no fees </b> <br>
+                                        The world is getting smaller and
+                                        we are becoming more mobile.So,
+                                        why should you be forced to only
+                                        recieve money in a single...
+                                    </p>
+                                    <!-- <p class="subtitle is-6 ">Satishjmbjhjnb Patel</p>
+                                    <div class="content py-0">
+                                        Our modern web and mobile<br />
+                                        applications allow you to keep<br />
+                                        track of your finances whereever<br />
+                                        you are in the world.
+
+                                    </div> -->
+                                    <!-- </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>

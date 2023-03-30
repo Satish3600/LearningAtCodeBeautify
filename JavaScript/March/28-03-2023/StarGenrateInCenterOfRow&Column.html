@@ -1,0 +1,51 @@
+</html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table-Genrator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        Rows <input type="text" id="userEnteredFirstValue" value="5"> <br>
+        Columns <input type="text" id="userEnteredSecondValue" value="5"> <br>
+        Minus <input type="text" id="userEnteredThirdValue" value="2">
+        <div class="column has-text-centered">
+            <button onclick="drawTable()" class="button is-info is-small">AddTable</button>
+            <div class="container table-container">
+                <table class="table is-bordered">
+                    <thead>
+                    <tbody id="printTable">
+                    </tbody>
+                </table>
+            </div>
+    <script>
+        function drawTable() {
+            let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value);
+            let  stringTable = ' <table class="table is-bordered"><tr>';
+            for (let i = 1; i <=  userEnteredFirstValue; i++) {
+                for (let j = 1; j <= userEnteredSecondValue; j++) {
+                    if(i==userEnteredThirdValue &&j==userEnteredThirdValue){
+                        
+                        stringTable = stringTable + "<td>"  + "*" + "</td>";
+                    }
+                    else{
+                        stringTable = stringTable + "<td>"  + "</td>";
+                    }
+                }
+                stringTable = stringTable + "</tr>";
+            }
+            document.getElementById("printTable").innerHTML = stringTable;
+        }
+
+
+    </script>
+</body>
+</html>

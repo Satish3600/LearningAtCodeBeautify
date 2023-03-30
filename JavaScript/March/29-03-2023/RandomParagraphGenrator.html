@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <title>RandomParagraphGenrator</title>
+</head>
+
+<body>
+  <div class="container p-5">
+    <div class="column has-text-centered">
+      Paragraphs:<input type="number" id="items">
+      <button onclick="genrate()" class="button is-info is-small  ">Click</button>
+    </div>
+    <div id="data">
+
+    </div>
+  </div>
+
+  <script>
+    const text = [`mydcfv name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+      `my name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `mydafsfcv name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `mydcvf name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `mydcfsfc name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `msadasdy name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `mysss name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+
+      `myda nsdaaadame is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `mydsdas name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `myddcfxd name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+      `mydff name is satish patel ia ma afrom kmamhyedanj jhbsdfuhy huagdcuy njhscxa  dwsfa h wguyeduydgh svcs cghdsajdasjf sdfjvh ijkfhvjkh bhgew  fruywef yhuefruiqhjkh iuhgvfsdiuhv ihfiuhiuvdf jjk uifhvihiv  fsdhi.`,
+
+    ];
+
+    const item = document.querySelector("#items");
+    const dataConatiner = document.querySelector("#data");
+    const genrate = () => {
+      console.log(item.value);
+      if (isNaN(item.value) || item.value < 0 || item.value > 9) {
+        const randomIndex = Math.floor(Math.random() * text.length);
+        console.log(randomIndex);
+        dataConatiner.innerHTML = `<p> ${text[randomIndex]} </p>`;
+      }
+      else {
+        const data = text.slice(0, item.value)
+        const paras = data.map(
+          (d) => {
+            return `<p> ${d} </p>`
+          }
+        )
+ dataConatiner.innerHTML = paras.join("");
+ 
+      }
+
+    }
+
+
+  </script>
+</body>
+
+</html>

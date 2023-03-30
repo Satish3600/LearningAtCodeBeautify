@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" id="userEnteredFirstValue" class="input is-large" placeholder="Entrer The Value" value="0">
+        <input type="text" id="userEnteredSecondValue" class="input is-large" placeholder="Entrer The Value" value="0">
+        <input type="text" id="userEnteredThirdValue" class="input is-large" placeholder="Entrer The Value" value="0">
+        <div class="column has-text-centered">
+            <button onclick="addInArray()" class="button is-info">Adding Array</button>
+        </div>
+        <p id="printTable"></p>
+    </div>
+    
+    <script>
+        var createArray = []; 
+        var i =0;
+        
+        function addInArray(){
+                let userEnteredFirstValue = Number(document.getElementById("userEnteredFirstValue").value); 
+                let userEnteredSecondValue = Number(document.getElementById("userEnteredSecondValue").value); 
+                let userEnteredThirdValue = Number(document.getElementById("userEnteredThirdValue").value); 
+
+                if(userEnteredFirstValue<userEnteredSecondValue && userEnteredFirstValue<userEnteredThirdValue ){
+                 createArray [i] = userEnteredFirstValue;
+                    i = i+1;    
+                } 
+                else if(userEnteredSecondValue<userEnteredFirstValue && userEnteredSecondValue< userEnteredThirdValue){
+                 createArray [i] = userEnteredSecondValue ;
+                    i = i+1;    
+                } 
+                else if(userEnteredThirdValue<userEnteredFirstValue &&userEnteredThirdValue <userEnteredSecondValue){
+                    createArray [i] = userEnteredThirdValue ;
+                    i = i+1;    
+                }
+                else if(userEnteredFirstValue ==userEnteredSecondValue){
+                    createArray [i] = userEnteredFirstValue ;
+                    i = i+1;   
+                }
+                else if(userEnteredThirdValue ==userEnteredFirstValue){
+                    createArray [i] = userEnteredThirdValue ;
+                    i = i+1;   
+                }
+                else if(userEnteredThirdValue ==userEnteredSecondValue){
+                    createArray [i] = userEnteredThirdValue ;
+                    i = i+1;   
+                }
+                else if(userEnteredThirdValue ==userEnteredSecondValue && userEnteredFirstValue ==userEnteredSecondValue){
+                    createArray [i] = userEnteredThirdValue ;
+                    i = i+1;   
+                }
+                
+                
+                 genrateTable()
+        }
+        function genrateTable(){
+                let stringTable =  '<table class="table is-bordered"><tr><th>Index Value</th><th>Array Value</th></tr>';
+                    for(i=0; i<createArray.length; i++){
+                    stringTable = stringTable + "<tr><td>" + i + "</td>" + "<td>" + createArray[i] + "</td></tr>"; 
+                    document.getElementById("printTable").innerHTML = stringTable;
+                }
+        }
+    </script>
+</body>
+
+</html>

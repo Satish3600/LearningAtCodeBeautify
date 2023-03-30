@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <!-- <p>Assign an "onchange" event to an input element.</p> -->
+
+  <!-- Enter your name: <input type="text" id="fname" onchange="myFunction()">
+
+<p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+<p id="print"></p> -->
+
+  <!-- <input type="text" id="userEnterdWords"> output: <span id="result"></span> -->
+  <!-- <input type="result" id="answerFacebook"> -->
+  <!-- <p id="result"></p> -->
+
+
+  <input type="text" id="userEnterdWords"> 
+  <input type="text" id="answerFacebook">
+
+  <script>
+
+    // userEnterdWords.oninput = function() {
+    //     result.value = userEnterdWords.value;
+    //   };
+
+    // userEnterdWords.oninput = function () {
+    //   answerFacebook.value = input.userEnterdWords;
+    // }
+
+  
+
+    userEnterdWords.oninput = function() {
+      answerFacebook.value = userEnterdWords.value;
+  };
+
+
+
+  </script>
+
+</body>
+
+</html>
