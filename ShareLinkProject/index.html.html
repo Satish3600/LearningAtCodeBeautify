@@ -8,6 +8,11 @@
   <title>Sharelink Generator</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <style>
+    .designBox {
+
+    }
+  </style>
 </head>
 
 <body>
@@ -380,8 +385,11 @@
 
                   <textarea id="printFacebookHtmlCode" class="textarea" placeholder="facebook Html Code"></textarea>
                 </div>
-                <div class="column is-6">
-                  <textarea id="printFacebookPreviewCode" class="textarea" placeholder="preview"></textarea>
+                <div class="column is-6" >
+                 <p><b>Preview</b></p> <div class="notification height='500px'" id="printFacebookPreviewCode" >
+
+                  </div>
+                  <!-- <textarea id="printFacebookPreviewCode" class="textarea" placeholder="preview"></textarea> -->
                 </div>
               </div>
             </div>
@@ -401,7 +409,7 @@
         <script>
           function createHtmlCode() {
             let userInputValue = document.getElementById("userEnterdWords").value;
-            let testigS = document.getElementById("satu").value;
+           let preview =  `<a href="#" ">${userInputValue}</a>`;
 
 
             let facebook = '<a href="https://www.facebook.com/sharer/sharer.php?u=' + userInputValue + '">Share on Facebook</a>';
@@ -416,11 +424,10 @@
               x.className = "block is-hidden";
             }
 
-
-
             document.getElementById("printFacebookHtmlCode").value = facebook;
-            // document.getElementById("printFacebookPreviewCode").value = facebookPreviewCode;
-            document.getElementById("printFacebookPreviewCode").value = facebook;
+
+            document.getElementById("printFacebookPreviewCode").innerHTML = preview;
+            // document.getElementById("printFacebookPreviewCode").value = facebook;
 
             copySocialLink();
           }

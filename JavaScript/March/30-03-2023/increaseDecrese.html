@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>increseDescreseTable</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div class="container p-5">
+        <input type="text" class="input is-small" id="userEnteredFirstValue">
+        <input type="text" class="input is-small" id="userEnteredSecondValue">
+
+        <div onclick="drawTable()" class="column has-textcentered">
+            <button class="button is-info">
+                AddTable
+            </button>
+            <button onclick="deleteLines()" class="button is-warning">
+                AddTable
+            </button>
+        </div>
+        <p id="printTable" class="block"></p>
+        <p id="printTable1"></p>
+    </div>
+
+    <script>
+        function drawTable() {
+            let firstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let strTable = '<table class="table is-bordered"> <tr><th>Number</th></tr>';
+                for(let i=1; i<=firstValue; i++){
+                    strTable = strTable + "<tr><td>" + i + "</td></tr>";
+                }
+                document.getElementById("printTable").innerHTML = strTable;
+                
+        }
+
+        function deleteLines(){
+
+            var x = document.getElementById("printTable");
+
+            if (x.className == "block") {
+              x.className = "block is-hidden";
+            
+            }
+
+
+
+
+
+
+            let firstValue = Number(document.getElementById("userEnteredFirstValue").value);
+            let secondValue = Number(document.getElementById("userEnteredSecondValue").value);
+            let answer = firstValue - secondValue ;
+
+            let strTable = '<table class="table is-bordered"> <tr><th>Number</th></tr>';
+                for(let i=1; i<=answer; i++){
+                    strTable = strTable + "<tr><td>" + i + "</td></tr>";
+                }
+                document.getElementById("printTable1").innerHTML = strTable;
+        }
+    </script>
+
+</body>
+
+</html>
