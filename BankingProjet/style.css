@@ -1,16 +1,18 @@
-.navbar {
 
+
+  
+  .navbar {
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding-top: 5px;
     padding-bottom: 10px;
 }
-body {
+  body {
+    
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
-
-  .navbar-end > a {
+.navbar-end > a {
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: 600;
@@ -47,7 +49,7 @@ body {
       120deg,
       hsl(192, 70%, 51%),
       hsl(136, 65%, 51%)
-    );
+      );
   }
 
   .line-color {
