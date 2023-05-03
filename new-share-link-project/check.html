@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharelink Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="container is-fluid mt-6">
+        <div class="columns">
+            <div class="column is-2">
+                <aside class="menu is-hidden-mobile">
+                    <ul class="menu-list">
+                        <li><a id="showAllOptionActiveColor">
+                                <div class="icon-text">
+                                    <span onclick="showAllOptionActiveColor('showAllOptionActiveColor')">All Option
+                                        Active</span>
+                                </div>
+                            </a></li>
+
+                        <li><a id="showFacebookColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-facebook-f"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showFacebookInputBox' , 'showFacebookColor' , 'showFacebookHtmlCode')">Facebook</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showFacebookDialogColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-regular fa-comment-dots"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showFacebookDialogInputBox' , 'showFacebookDialogColor' , 'showFacebookDialogHtmlCode' )">Facebook
+                                        Dialog</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showTwitterColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-twitter"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showTwitterInputBox' , 'showTwitterColor' , 'showTwitterHtmlCode')">Twitter</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showPinterestColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-pinterest-p"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showPinterestInputBox' , 'showPinterestColor' , 'showPinterestHtmlCode')">Pinterest</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showLinkedInColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showLinkedInInputBox' , 'showLinkedInColor' , 'showLinkedInHtmlCode')">Linked
+                                        In</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showBufferColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-buffer"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showBufferInputBox' , 'showBufferColor' , 'showBufferHtmlCode')">Buffer</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showDiggColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-digg"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showDiggInputBox' , 'showDiggColor' , 'showDiggHtmlCode')">Digg</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showTumblrColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-tumblr"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showTumblrInputBox', 'showTumblrColor' , 'showTumblrHtmlCode')">Tumblr</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showRedditColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-reddit-alien"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showRedditInputBox' , 'showRedditColor' , 'showRedditHtmlCode')">Reddit</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showStumbleuponColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-stumbleupon"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showStumbleuponInputBox' , 'showStumbleuponColor' , 'showStumbleuponHtmlCode')">Stumbleupon</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showDeliciousColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-brands fa-delicious"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showDeliciousInputBox' , 'showDeliciousColor' , 'showDeliciousHtmlCode')">Delicious</span>
+                                </div>
+                            </a></li>
+                        <li><a id="showEmailColor">
+                                <div class="icon-text">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <span
+                                        onclick="activateLink('showEmailInputBox' , 'showEmailColor' , 'showEmailHtmlCode')">Email</span>
+                                </div>
+                            </a></li>
+                    </ul>
+                </aside>
+            </div>
+
+            <div class="column is-5">
+                <div class="content has-text-centered is-capitalized">
+                    <h1 class="title is-size-3">Sharelink Generator</h1>
+                </div>
+
+                <div class="block">
+                    <div class="field">
+                        <label class="label is-inline">
+                            <span>Url/Content</span>
+                            <span class="is-pulled-right"><a href="#" onclick="createSample()" class="has-text-black"
+                                    href="">Sample</a></span>
+                        </label>
+                        <div class="control mt-3">
+                            <input id="contentInputValue" oninput="checkAutomaticPrintValues()" type="text"
+                                class="input is-info" placeholder="https://codebeautify.org/">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div id="emailOptions" class="block is-hidden">
+                    <div id="" class="block">
+                        <div class="field">
+                            <label class="label is-inline">
+                                <span>subject</span>
+                                <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
+                            </label>
+                            <div class="control mt-2">
+                                <input id="emailSubjectInputValue" oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="" class="block">
+                        <div class="field">
+                            <label class="label is-inline">
+                                <span>cc</span>
+                                <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
+                            </label>
+                            <div class="control mt-2">
+                                <input id="emailCcInputValue" oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="" class="block">
+                        <div class="field">
+                            <label class="label is-inline">
+                                <span>bcc</span>
+                                <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
+                            </label>
+                            <div class="control mt-2">
+                                <input id="emailBccInputValue"  oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="" class="block">
+                        <div class="field">
+                            <label class="label is-inline">
+                                <span>body</span>
+                                <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
+                            </label>
+                            <div class="control mt-2">
+                                <input id="emailBodyInputValue"  oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div id="previewCodeDiv" class="block">
+                    <div class="field">
+                        <label class="label is-inline">
+                            <span>Preview Code</span>
+                            <span class="is-pulled-right"><a href="#" class="has-text-black" href=""></a></span>
+                        </label>
+                        <div class="control mt-2">
+                            <input id="previewInputBox" type="text" class="input is-info"
+                                oninput="showPreviewInputBox()">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block has-text-centered">
+                    <div class="field">
+                        <label class="checkbox is-inline">
+                            <span class="is-size-4">
+                                <input type="checkbox" id="autoPrintCheckBox" onclick="createsLink();" checked></span>
+                            <span class="mr-2">Auto</span>
+                        </label>
+                        <div class="control is-inline">
+                            <button onclick="createLinks()"
+                                class="button mr-2 is-primary is-size-6 is-medium is-rounded">Generate</button>
+                            <button onclick="refreshPage()"
+                                class="button mr-2 is-danger is-size-6 is-medium is-rounded">Clear</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showFacebookInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <span>Facebook</span>
+                            </div>
+
+                            <span class="is-pulled-right">
+                                <a id="facebookLink" target="_blank"
+                                    href="https://www.facebook.com/sharer/sharer.php?u="
+                                    onclick="createFacebookHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black">
+                                    </i>
+                                </a>
+                            </span>
+                            <span class="is-pulled-right mr-5" id="facebookCopy">
+                                <a id="facebookLink"
+                                    onclick="copySocialLink('facebookLink' ,'facebookCopy' , 'facebookInputBox' )"
+                                    href="#">
+                                    <i class="fa-solid fa-copy has-text-black">
+                                    </i>
+                                </a>
+                            </span>
+                            <span class="is-pulled-right mr-5">
+                                <a onclick="createFacebookHtmlCode()" href="#">
+                                    <i class="fa-solid fa-code has-text-black">
+                                    </i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="facebookInputBox" type="text" class="input is-success"
+                                placeholder="facebookInputBox">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block is-hidden" id="showFacebookHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="facebookPreviewCopy">
+                                <a id="facebookPreviewLink" href="#"
+                                    onclick="copySocialLink('facebookPreviewLink','facebookPreviewCopy','printFacebookHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printFacebookHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printFacebookPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showFacebookDialogInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-regular fa-comment-dots"></i>
+                                </div>
+                                <span>Facebook Dialog</span>
+                            </div>
+                            <span class="is-pulled-right"><a href="#"><i
+                                        class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+                            <span id="facebookDialogCopy" class="is-pulled-right mr-5"><a id="facebookDialogLink"
+                                    onclick="copySocialLink('facebookDialogLink' ,'facebookDialogCopy' , 'facebookDialogInputBox' )"
+                                    href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createFacebookDialogHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="facebookDialogInputBox" type="text" class="input is-success"
+                                placeholder="facebookDialogInputBox">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block is-hidden" id="showFacebookDialogHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-regular fa-comment-dots"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span id="facebookDialogPreviewCopy" class="is-pulled-right mr-5">
+                                <a id="facebookDialogPreviewLink" href="#"
+                                    onclick="copySocialLink('facebookDialogPreviewLink','facebookDialogPreviewCopy','printFacebookDialogHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printFacebookDialogHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printFacebookDialogPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showTwitterInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </div>
+                                <span>Twitter</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="twitterLink" target="_blank" href="https://twitter.com/intent/tweet?url=&text="
+                                    onclick="createTwitterHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a></span>
+                            <span id="twitterCopy" class="is-pulled-right mr-5"><a
+                                    onclick="copySocialLink('twitterLink' ,'twitterCopy' , 'twitterInputBox' )"
+                                    id="twitterLink" href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createTwitterHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="twitterInputBox" type="text" class="input is-success"
+                                placeholder="twitterInputBox">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block is-hidden" id="showTwitterHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-twitter"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="twitterPreviewCopy">
+                                <a id="twitterPreviewLink" href="#"
+                                    onclick="copySocialLink('twitterPreviewLink','twitterPreviewCopy','printTwitterHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printTwitterHtmlCode" class="textarea"
+                                        placeholder="twitter Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printTwitterPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showPinterestInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-pinterest-p"></i>
+                                </div>
+                                <span>Pinterest</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="pinterestLink" target="_blank"
+                                    href="http://pinterest.com/pin/create/button/?url=&media=&description="
+                                    onclick="createPinterestHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="pinterestCopy" class="is-pulled-right mr-5"><a
+                                    onclick="copySocialLink('pinterestLink' ,'pinterestCopy' , 'pinterestInputBox' )"
+                                    id="pinterestLink" href="#"><i
+                                        class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createPinterestHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="pinterestInputBox" type="text" class="input is-success"
+                                placeholder="pinterestInputBox">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block is-hidden" id="showPinterestHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-pinterest-p"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="pinterestPreviewCopy">
+                                <a id="pinterestPreviewLink" href="#"
+                                    onclick="copySocialLink('pinterestPreviewLink','pinterestPreviewCopy','printPinterestHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printPinterestHtmlCode" class="textarea"
+                                        placeholder="pinterest Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printPinterestPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showLinkedInInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <span>Linked In</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="linkedInLink" target="_blank" href="" onclick="createLinkedInHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="LinkedInCopy" class="is-pulled-right mr-5"><a id="LinkedInLink"
+                                    onclick="copySocialLink('LinkedInLink' ,'LinkedInCopy' , 'linkedInInputBox' )"
+                                    href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createLinkedInHtmlCode()"
+                                    href="http://www.linkedin.com/shareArticle?mini=true&url=&title="><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="linkedInInputBox" type="text" class="input is-success"
+                                placeholder="linkedInInputBox">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block is-hidden" id="showLinkedInHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="linkedInPreviewCopy">
+                                <a id="linkedInPreviewLink" href="#"
+                                    onclick="copySocialLink('linkedInPreviewLink','linkedInPreviewCopy','printLinkedInHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printLinkedInHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printLinkedInPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showBufferInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-buffer"></i>
+                                </div>
+                                <span>Buffer</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="bufferLink" target="_blank" href="https://buffer.com/add?text=&url="
+                                    onclick="createBufferHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="bufferCopy" class="is-pulled-right mr-5"><a id="bufferLink"
+                                    onclick="copySocialLink('bufferLink' ,'bufferCopy' , 'bufferInputBox' )" href="#"><i
+                                        class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createBufferHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="bufferInputBox" type="text" class="input is-success"
+                                placeholder="bufferInputBox">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block is-hidden" id="showBufferHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-buffer"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="bufferPreviewCopy">
+                                <a id="bufferPreviewLink" href="#"
+                                    onclick="copySocialLink('bufferPreviewLink','bufferPreviewCopy','printBufferHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printBufferHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printBufferPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showDiggInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-digg"></i>
+                                </div>
+                                <span>Digg</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="diggtLink" target="_blank" href="https://digg.com/submit?url=&title="
+                                    onclick="createDiggHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="diggCopy" class="is-pulled-right mr-5"><a id="diggLink"
+                                    onclick="copySocialLink('diggLink' ,'diggCopy' , 'diggInputBox' )" href="#"><i
+                                        class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createDiggHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="diggInputBox" type="text" class="input is-success" placeholder="diggInputBox">
+                        </div>
+                    </div>
+                </div>
+                <div class="block is-hidden" id="showDiggHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-digg"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="diggPreviewCopy">
+                                <a id="diggPreviewLink" href="#"
+                                    onclick="copySocialLink('diggPreviewLink','diggPreviewCopy','printDiggHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printDiggHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printDiggPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showTumblrInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-tumblr"></i>
+                                </div>
+                                <span>Tumblr</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="tumblrLink" target="_blank" href="http://www.tumblr.com/share?v=3&u=&t="
+                                    onclick="createTumblrHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="tumblrCopy" class="is-pulled-right mr-5"><a id="tumblrLink"
+                                    onclick="copySocialLink('tumblrLink' ,'tumblrCopy' , 'trumblrInputBox' )"
+                                    href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createTumblrHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="trumblrInputBox" type="text" class="input is-success"
+                                placeholder="trumblrInputBox">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block is-hidden" id="showTumblrHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-tumblr"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="tumblrPreviewCopy">
+                                <a id="tumblrPreviewLink" href="#"
+                                    onclick="copySocialLink('tumblrPreviewLink','tumblrPreviewCopy','printTumblrHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printTumblrHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printTumblrPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showRedditInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-reddit-alien"></i>
+                                </div>
+                                <span>Reddit</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="redditLink" target="_blank" href="https://reddit.com/submit?url=&title="
+                                    onclick="createRedditHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="redditCopy" class="is-pulled-right mr-5"><a
+                                    onclick="copySocialLink('redditLink' ,'redditCopy' , 'redditInputBox' )"
+                                    id="redditLink" href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createRedditHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="redditInputBox" type="text" class="input is-success"
+                                placeholder="redditInputBox">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block is-hidden" id="showRedditHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-reddit-alien"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="redditPreviewCopy">
+                                <a id="redditPreviewLink" href="#"
+                                    onclick="copySocialLink('redditPreviewLink','redditPreviewCopy','printRedditHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printRedditHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printRedditPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showStumbleuponInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-stumbleupon"></i>
+                                </div>
+                                <span>Stumbleupon</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="stumbleuponLink" target="_blank"
+                                    href="https://www.stumbleupon.com/submit?url=&title="
+                                    onclick="createStumbleuponHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="stumbleuponCopy" class="is-pulled-right mr-5"><a id="stumbleuponLink"
+                                    onclick="copySocialLink('stumbleuponLink' ,'stumbleuponCopy' , 'stumbleuponInputBox' )"
+                                    href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createStumbleuponHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="stumbleuponInputBox" type="text" class="input is-success"
+                                placeholder="stumbleuponInputBox">
+                        </div>
+                    </div>
+                </div>
+                <div class="block is-hidden" id="showStumbleuponHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-stumbleupon"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="stumbleuponPreviewCopy">
+                                <a id="stumbleuponPreviewLink" href="#"
+                                    onclick="copySocialLink('stumbleuponPreviewLink','stumbleuponPreviewCopy','printStumbleuponHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printStumbleuponHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printStumbleuponPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showDeliciousInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-brands fa-stumbleupon"></i>
+                                </div>
+                                <span>Delicious</span>
+                            </div>
+                            <span class="is-pulled-right"><a href="#"><i
+                                        class="fa-solid fa-arrow-up-right-from-square has-text-black"></i></a></span>
+                            <span id="deliciousCopy" class="is-pulled-right mr-5"><a id="deliciousLink"
+                                    onclick="copySocialLink('deliciousLink' ,'deliciousCopy' , 'deliciousInputBox' )"
+                                    href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createDeliciousHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="deliciousInputBox" type="text" class="input is-success"
+                                placeholder="deliciousInputBox">
+                        </div>
+                    </div>
+                </div>
+                <div class="block is-hidden" id="showDeliciousHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-brands fa-stumbleupon"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="deliciousPreviewCopy">
+                                <a id="deliciousPreviewLink" href="#"
+                                    onclick="copySocialLink('deliciousPreviewLink','deliciousPreviewCopy','printDeliciousHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printDeliciousHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printDeliciousPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="block" id="showEmailInputBox">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span>Email</span>
+                            </div>
+                            <span class="is-pulled-right">
+                                <a id="emailLink" target="_blank" href="mailto:?" onclick="createEmailHtmlCode(false)">
+                                    <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
+                                </a>
+                            </span>
+                            <span id="emailCopy" class="is-pulled-right mr-5"><a id="emailLink"
+                                    onclick="copySocialLink('emailLink' ,'emailCopy' , 'emailInputBox' )" href="#"><i
+                                        class="fa-solid fa-copy has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createEmailHtmlCode()" href="#"><i
+                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <input id="emailInputBox" type="text" class="input is-success" placeholder="emailInputBox">
+                        </div>
+                    </div>
+                </div>
+                <div class="block is-hidden" id="showEmailHtmlCode">
+                    <div class="field">
+                        <label class="label">
+                            <div class="icon-text is-inline">
+                                <div class="icon is-inline">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <span>HTML link:</span>
+                            </div>
+                            <span class="is-pulled-right mr-5" id="emailPreviewCopy">
+                                <a id="emailPreviewLink" href="#"
+                                    onclick="copySocialLink('emailPreviewLink','emailPreviewCopy','printEmailHtmlCode' )">
+                                    <i class="fa-solid fa-copy has-text-black"></i>
+                                </a>
+                            </span>
+                        </label>
+                        <div class="control has-icons-right">
+                            <div class="columns">
+                                <div class="column is-6">
+                                    <textarea id="printEmailHtmlCode" class="textarea"
+                                        placeholder="facebook Html Code"></textarea>
+                                </div>
+                                <div class="column is-6">
+                                    <p><b>Preview</b></p>
+                                    <div class="notification height='500px'" id="printEmailPreview">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="column is-5">
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="check.js"></script>
+</body>
+
+</html>
