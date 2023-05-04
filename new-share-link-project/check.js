@@ -1,9 +1,11 @@
+var toggle = true;
 function createLinks() {
+
     let contentInputValue = document.getElementById("contentInputValue").value;
-    let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
-    let emailCcInputValue = document.getElementById("emailCcInputValue").value;
-    let emailBccInputValue = document.getElementById("emailBccInputValue").value;
-    let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
+    // let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
+    // let emailCcInputValue = document.getElementById("emailCcInputValue").value;
+    // let emailBccInputValue = document.getElementById("emailBccInputValue").value;
+    // let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
 
 
 
@@ -18,11 +20,11 @@ function createLinks() {
     let redditInputAnswer = `https://reddit.com/submit?url=${contentInputValue}&title=`;
     let stumbleuponInputAnswer = `https://www.stumbleupon.com/submit?url=${contentInputValue}&title=`;
     // let deliciousInputAnswer  = " " + contentInputValue;
-    let emailInputAnswer = `mailto:${contentInputValue}?`
-    let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
-    let emailCcAnswer = `&cc=${emailCcInputValue}`;
-    let emailBccAnswer = `&bcc=${emailBccInputValue}`;
-    let emailBodyAnswer = `&body=${emailBodyInputValue}`;
+    // let emailInputAnswer = `mailto:${contentInputValue}?`
+    // let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
+    // let emailCcAnswer = `&cc=${emailCcInputValue}`;
+    // let emailBccAnswer = `&bcc=${emailBccInputValue}`;
+    // let emailBodyAnswer = `&body=${emailBodyInputValue}`;
 
 
 
@@ -37,8 +39,15 @@ function createLinks() {
     document.getElementById("redditInputBox").value = redditInputAnswer;
     document.getElementById("stumbleuponInputBox").value = stumbleuponInputAnswer;
     // document.getElementById("deliciousInputBox").value =  deliciousInputAnswer ;
-    document.getElementById("emailInputBox").value = emailInputAnswer + emailSubjectAnswer + emailCcAnswer + emailBccAnswer + emailBodyAnswer;
+    // document.getElementById("emailInputBox").value = emailInputAnswer + emailSubjectAnswer + emailCcAnswer + emailBccAnswer + emailBodyAnswer;
+if(toggle == false){
 
+    createAutomaticEmailValue();
+    toggle = true;
+
+}
+
+else{
     createFacebookHtmlCode(true);
     createFacebookDialogHtmlCode(true);
     createTwitterHtmlCode(true);
@@ -50,13 +59,18 @@ function createLinks() {
     createRedditHtmlCode(true);
     createStumbleuponHtmlCode(true);
     createDeliciousHtmlCode(true);
-    // createEmailHtmlCode();
+    // createEmailHtmlCode(true);
+}
+
+
+ 
 
 }
 function createSample() {
     const sampleCode = "https://codebeautify.org/";
     document.getElementById("contentInputValue").value = sampleCode;
     createLinks();
+    // hideEmailOptions();
 
 }
 function checkAutomaticPrintValues() {
@@ -220,6 +234,7 @@ function showAll() {
     document.getElementById("showFacebookInputBox").style.display = "";
 }
 function showAllOptionActiveColor(sideBarLinkId) {
+    hideEmailOptions();
     hideHtmlCode();
     showAll();
     deactivateSideBarAll();
@@ -637,11 +652,12 @@ function createDeliciousHtmlCode(isLocalKeepOpen) {
     }
 }
 function createEmailHtmlCode(isLocalKeepOpen) {
-    if (isLocalKeepOpen == false) {
-      
+    
+        if (isLocalKeepOpen == false) {
+
     }
     else {
-
+    
 
         let hidePreviewCodeDiv = document.getElementById("previewCodeDiv");
         if (hidePreviewCodeDiv.className == "block") {
@@ -661,30 +677,47 @@ function createEmailHtmlCode(isLocalKeepOpen) {
                 showEmailHtmlInputBox.className = "block is-hidden";
             }
         }
+
+        
     }
 
 
-    // let facebook;
-    // let preview;
-    // let contentInputValue = document.getElementById("contentInputValue").value;
-    // // let previewInputBox = document.getElementById("previewInputBox").value;
-    // // if (previewInputBox.length == 0) {
-    // //     preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">Share on Facebook</a>`;
-    // //     facebook = '<a href="https://www.facebook.com/sharer/sharer.php?u=' + contentInputValue + '">Share on Facebook</a>';
-    // // }
-    // // else {
-    // //     facebook = `<a href="https://www.facebook.com/sharer/sharer.php?u=' ${contentInputValue}'">${previewInputBox}</a>`;
-    // //     preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">${previewInputBox}</a>`;
-    // // }
-    // // document.getElementById("printEmailHtmlCode").value = facebook;
-    // // document.getElementById("printEmailPreview").innerHTML = preview;
-    // // printEmailHtmlCode.oninput = function () {
-    // //     printEmailPreview.innerHTML = printEmailHtmlCode.value;
-    // // }
+    let facebook;
+    let preview;
+    let contentInputValue = document.getElementById("contentInputValue").value;
+    console.log(contentInputValue)
+    // let previewInputBox = document.getElementById("previewInputBox").value;
+    // if (previewInputBox.length == 0) {
+        // preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">Share on Facebook</a>`;
+        facebook =`mailtrweo:${contentInputValue}?`;
+    // }
+    // else {
+        facebook = `mailsdfato:${contentInputValue}?`;
+        // preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">${previewInputBox}</a>`;
+    // }
+    document.getElementById("printEmailHtmlCode").value = facebook;
+    // document.getElementById("printEmailPreview").innerHTML = preview;
+    contentInputValue.oninput = function () {
+        printEmailPreview.innerHTML = contentInputValue.value;
+    }
+    createAutomaticEmailValue();
+}
 
+function createAutomaticEmailValue(){
+    toggle = false;
+    let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
+    let emailCcInputValue = document.getElementById("emailCcInputValue").value;
+    let emailBccInputValue = document.getElementById("emailBccInputValue").value;
+    let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
 
+    let emailInputAnswer = `mailto:${contentInputValue}?`
+    let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
+    let emailCcAnswer = `&cc=${emailCcInputValue}`;
+    let emailBccAnswer = `&bcc=${emailBccInputValue}`;
+    let emailBodyAnswer = `&body=${emailBodyInputValue}`;
 
-
+       document.getElementById("emailInputBox").value = emailInputAnswer + emailSubjectAnswer + emailCcAnswer + emailBccAnswer + emailBodyAnswer;
+       createEmailHtmlCode(true);
 }
 
 
