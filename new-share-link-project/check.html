@@ -14,7 +14,7 @@
     <div class="container is-fluid mt-6">
         <div class="columns">
             <div class="column is-2">
-                <aside class="">
+                <aside class="menu is-hidden-mobile">
                     <ul class="menu-list">
                         <li><a id="showAllOptionActiveColor">
                                 <div class="icon-text">
@@ -124,15 +124,17 @@
                                         onclick="activateLink('showDeliciousInputBox' , 'showDeliciousColor' , 'showDeliciousHtmlCode')">Delicious</span>
                                 </div>
                             </a></li>
-                        <li><a id="showEmailColor">
-                                <div class="icon-text">
-                                    <div class="icon">
-                                        <i class="fa-solid fa-envelope"></i>
+                        <li>
+                                <a  id="showEmailColor" class="">
+                                    <div class="icon-text">
+                                        <div class="icon">
+                                            <i class="fa-solid fa-envelope"></i>
+                                        </div>
+                                        <span
+                                            onclick="activateLink('showEmailInputBox' , 'showEmailColor' , 'showEmailHtmlCode')">Email</span>
                                     </div>
-                                    <span
-                                        onclick="activateLink('showEmailInputBox' , 'showEmailColor' , 'showEmailHtmlCode')">Email</span>
-                                </div>
-                            </a></li>
+                                </a>
+                        </li>
                     </ul>
                 </aside>
             </div>
@@ -167,7 +169,8 @@
                                 <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
                             </label>
                             <div class="control mt-2">
-                                <input id="emailSubjectInputValue" oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                                <input id="emailSubjectInputValue" oninput="checkAutomaticPrintValues()" type="text"
+                                    class="input is-info">
                             </div>
                         </div>
                     </div>
@@ -179,7 +182,8 @@
                                 <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
                             </label>
                             <div class="control mt-2">
-                                <input id="emailCcInputValue" oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                                <input id="emailCcInputValue" oninput="checkAutomaticPrintValues()" type="text"
+                                    class="input is-info">
                             </div>
                         </div>
                     </div>
@@ -191,7 +195,8 @@
                                 <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
                             </label>
                             <div class="control mt-2">
-                                <input id="emailBccInputValue"  oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                                <input id="emailBccInputValue" oninput="checkAutomaticPrintValues()" type="text"
+                                    class="input is-info">
                             </div>
                         </div>
                     </div>
@@ -203,7 +208,8 @@
                                 <span class="is-pulled-right"><a href="#" class="has-text-black"></a></span>
                             </label>
                             <div class="control mt-2">
-                                <input id="emailBodyInputValue"  oninput="checkAutomaticPrintValues()" type="text" class="input is-info">
+                                <input id="emailBodyInputValue" oninput="checkAutomaticPrintValues()" type="text"
+                                    class="input is-info">
                             </div>
                         </div>
                     </div>
@@ -256,17 +262,15 @@
                             </div>
 
                             <span class="is-pulled-right">
-                                <a id="facebookLink" target="_blank"
+                                <a id="facebookOpenLink" target="_blank"
                                     href="https://www.facebook.com/sharer/sharer.php?u="
                                     onclick="createFacebookHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black">
                                     </i>
                                 </a>
                             </span>
-                            <span class="is-pulled-right mr-5" id="facebookCopy">
-                                <a id="facebookLink"
-                                    onclick="copySocialLink('facebookLink' ,'facebookCopy' , 'facebookInputBox' )"
-                                    href="#">
+                            <span id="facebookCopy" class="is-pulled-right mr-5"  >
+                                <a id="facebookLink"  onclick="copySocialLink('facebookLink' ,'facebookCopy' , 'facebookInputBox' )"  href="#">
                                     <i class="fa-solid fa-copy has-text-black">
                                     </i>
                                 </a>
@@ -385,13 +389,13 @@
                                 <span>Twitter</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="twitterLink" target="_blank" href="https://twitter.com/intent/tweet?url=&text="
+                                <a id="twitterOpenLink" target="_blank" href="https://twitter.com/intent/tweet?url=&text="
                                     onclick="createTwitterHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a></span>
-                            <span id="twitterCopy" class="is-pulled-right mr-5"><a
+                            <span id="twitterCopy" class="is-pulled-right mr-5"><a id="twitterLink"
                                     onclick="copySocialLink('twitterLink' ,'twitterCopy' , 'twitterInputBox' )"
-                                    id="twitterLink" href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
+                                    href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
                             <span class="is-pulled-right mr-5"><a onclick="createTwitterHtmlCode()" href="#"><i
                                         class="fa-solid fa-code has-text-black"></i></a></span>
                         </label>
@@ -435,6 +439,7 @@
                 </div>
 
 
+
                 <div class="block" id="showPinterestInputBox">
                     <div class="field">
                         <label class="label">
@@ -445,7 +450,7 @@
                                 <span>Pinterest</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="pinterestLink" target="_blank"
+                                <a id="pinterestOpenLink" target="_blank"
                                     href="http://pinterest.com/pin/create/button/?url=&media=&description="
                                     onclick="createPinterestHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
@@ -508,16 +513,15 @@
                                 <span>Linked In</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="linkedInLink" target="_blank" href="" onclick="createLinkedInHtmlCode(false)">
+                                <a id="linkedInOpenLink" target="_blank" href="" onclick="createLinkedInHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a>
                             </span>
                             <span id="LinkedInCopy" class="is-pulled-right mr-5"><a id="LinkedInLink"
                                     onclick="copySocialLink('LinkedInLink' ,'LinkedInCopy' , 'linkedInInputBox' )"
                                     href="#"><i class="fa-solid fa-copy has-text-black"></i></a></span>
-                            <span class="is-pulled-right mr-5"><a onclick="createLinkedInHtmlCode()"
-                                    href="http://www.linkedin.com/shareArticle?mini=true&url=&title="><i
-                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createLinkedInHtmlCode()" href="#">
+                                    <i class="fa-solid fa-code has-text-black"></i></a></span>
                         </label>
                         <div class="control has-icons-right">
                             <input id="linkedInInputBox" type="text" class="input is-success"
@@ -569,7 +573,7 @@
                                 <span>Buffer</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="bufferLink" target="_blank" href="https://buffer.com/add?text=&url="
+                                <a id="bufferOpenLink" target="_blank" href="https://buffer.com/add?text=&url="
                                     onclick="createBufferHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a>
@@ -631,7 +635,7 @@
                                 <span>Digg</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="diggtLink" target="_blank" href="https://digg.com/submit?url=&title="
+                                <a id="diggOpenLink" target="_blank" href="https://digg.com/submit?url=&title="
                                     onclick="createDiggHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a>
@@ -690,7 +694,7 @@
                                 <span>Tumblr</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="tumblrLink" target="_blank" href="http://www.tumblr.com/share?v=3&u=&t="
+                                <a id="tumblrOpenLink" target="_blank" href="http://www.tumblr.com/share?v=3&u=&t="
                                     onclick="createTumblrHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a>
@@ -752,7 +756,7 @@
                                 <span>Reddit</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="redditLink" target="_blank" href="https://reddit.com/submit?url=&title="
+                                <a id="redditOpenLink" target="_blank" href="https://reddit.com/submit?url=&title="
                                     onclick="createRedditHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a>
@@ -813,7 +817,7 @@
                                 <span>Stumbleupon</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="stumbleuponLink" target="_blank"
+                                <a id="stumbleuponOpenLink" target="_blank"
                                     href="https://www.stumbleupon.com/submit?url=&title="
                                     onclick="createStumbleuponHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
@@ -930,15 +934,15 @@
                                 <span>Email</span>
                             </div>
                             <span class="is-pulled-right">
-                                <a id="emailLink" target="_blank" href="mailto:?" onclick="createEmailHtmlCode(false)">
+                                <a id="emailOpenLink" target="_blank" href="mailto:?" onclick="createEmailHtmlCode(false)">
                                     <i class="fa-solid fa-arrow-up-right-from-square has-text-black"></i>
                                 </a>
                             </span>
                             <span id="emailCopy" class="is-pulled-right mr-5"><a id="emailLink"
                                     onclick="copySocialLink('emailLink' ,'emailCopy' , 'emailInputBox' )" href="#"><i
                                         class="fa-solid fa-copy has-text-black"></i></a></span>
-                            <span class="is-pulled-right mr-5"><a onclick="createEmailHtmlCode()" href="#"><i
-                                        class="fa-solid fa-code has-text-black"></i></a></span>
+                            <span class="is-pulled-right mr-5"><a onclick="createEmailHtmlCode(36)" href="#">
+                                <i class="fa-solid fa-code has-text-black"></i></a></span>
                         </label>
                         <div class="control has-icons-right">
                             <input id="emailInputBox" type="text" class="input is-success" placeholder="emailInputBox">

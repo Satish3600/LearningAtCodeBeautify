@@ -1,11 +1,9 @@
-var toggle = true;
 function createLinks() {
-
     let contentInputValue = document.getElementById("contentInputValue").value;
-    // let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
-    // let emailCcInputValue = document.getElementById("emailCcInputValue").value;
-    // let emailBccInputValue = document.getElementById("emailBccInputValue").value;
-    // let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
+    let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
+    let emailCcInputValue = document.getElementById("emailCcInputValue").value;
+    let emailBccInputValue = document.getElementById("emailBccInputValue").value;
+    let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
 
 
 
@@ -19,12 +17,12 @@ function createLinks() {
     let tumblrInputAnswer = `http://www.tumblr.com/share?v=3&u=${contentInputValue}&t=`;
     let redditInputAnswer = `https://reddit.com/submit?url=${contentInputValue}&title=`;
     let stumbleuponInputAnswer = `https://www.stumbleupon.com/submit?url=${contentInputValue}&title=`;
-    // let deliciousInputAnswer  = " " + contentInputValue;
-    // let emailInputAnswer = `mailto:${contentInputValue}?`
-    // let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
-    // let emailCcAnswer = `&cc=${emailCcInputValue}`;
-    // let emailBccAnswer = `&bcc=${emailBccInputValue}`;
-    // let emailBodyAnswer = `&body=${emailBodyInputValue}`;
+    // let deliciousInputAnswer = " " + contentInputValue;
+    let emailInputAnswer = `mailto:${contentInputValue}?`
+    let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
+    let emailCcAnswer = `&cc=${emailCcInputValue}`;
+    let emailBccAnswer = `&bcc=${emailBccInputValue}`;
+    let emailBodyAnswer = `&body=${emailBodyInputValue}`;
 
 
 
@@ -39,15 +37,10 @@ function createLinks() {
     document.getElementById("redditInputBox").value = redditInputAnswer;
     document.getElementById("stumbleuponInputBox").value = stumbleuponInputAnswer;
     // document.getElementById("deliciousInputBox").value =  deliciousInputAnswer ;
-    // document.getElementById("emailInputBox").value = emailInputAnswer + emailSubjectAnswer + emailCcAnswer + emailBccAnswer + emailBodyAnswer;
-if(toggle == false){
+    
+    document.getElementById("emailInputBox").value = emailInputAnswer + emailSubjectAnswer + emailCcAnswer + emailBccAnswer + emailBodyAnswer;
+    
 
-    createAutomaticEmailValue();
-    toggle = true;
-
-}
-
-else{
     createFacebookHtmlCode(true);
     createFacebookDialogHtmlCode(true);
     createTwitterHtmlCode(true);
@@ -59,32 +52,27 @@ else{
     createRedditHtmlCode(true);
     createStumbleuponHtmlCode(true);
     createDeliciousHtmlCode(true);
-    // createEmailHtmlCode(true);
-}
-
-
- 
-
+    createEmailHtmlCode(true);
 }
 function createSample() {
+
+   let emialIdSample =  document.getElementById("showEmailColor")
+   if(emialIdSample.className == " is-active "){
+    const emailSampleCode = "gunatit36@gmail.com";
+    document.getElementById("contentInputValue").value = emailSampleCode;
+    createLinks();
+   }
+   else{
     const sampleCode = "https://codebeautify.org/";
     document.getElementById("contentInputValue").value = sampleCode;
     createLinks();
-    // hideEmailOptions();
-
+   }
+   
 }
 function checkAutomaticPrintValues() {
     let checkBox = document.getElementById("autoPrintCheckBox");
     if (checkBox.checked == true) {
         createLinks();
-        // let hidePreviewCodeDiv =  document.getElementById("previewCodeDiv");
-        // if(hidePreviewCodeDiv.className == "block is-hidden"){
-        //     hidePreviewCodeDiv.className = "block block";
-        // }
-        // let emailOptions = document.getElementById("emailOptions");
-        // if(emailOptions.className == "block is-hidden"){
-        //     emailOptions.className = "block";
-        // }
     }
 }
 function refreshPage() {
@@ -117,15 +105,20 @@ function deactivateSideBarAll() {
     document.getElementById("showStumbleuponColor").className = "none";
     document.getElementById("showDeliciousColor").className = "none";
     document.getElementById("showEmailColor").className = "none";
-    document.getElementById("showAllOptionActiveColor").className = "none"; //Used For Select All Valuue
+    document.getElementById("showAllOptionActiveColor").className = "none";
 }
 function activateLink(inputBox, color, htmlCode) {
-    hideEmailOptions();
+    hideEmailOptions(); 
     hideAll();
     hideHtmlCode();
     document.getElementById(inputBox).style.display = "";
     deactivateSideBarAll();
-    document.getElementById(color).className = "is-active";
+    if(color == "showEmailColor"){
+        document.getElementById(color).className = " is-active ";
+    }
+    else{
+        document.getElementById(color).className = "is-active";
+    }
     if (htmlCode == "showFacebookHtmlCode") {
         createFacebookHtmlCode();
     }
@@ -160,13 +153,8 @@ function activateLink(inputBox, color, htmlCode) {
         createDeliciousHtmlCode();
     }
     if (htmlCode == "showEmailHtmlCode") {
-        createEmailHtmlCode();
+        createEmailHtmlCode(9);
     }
-
-
-
-
-
 }
 function hideHtmlCode() {
     let showFacebookHtmlInputBox = document.getElementById("showFacebookHtmlCode");
@@ -249,9 +237,8 @@ function copySocialLink(socialLink, socialCopy, socialText) {
 
     document.getElementById(socialLink).style.display = "none";
     console.log("socialLink  " + socialLink)
-
     var tooltip = document.getElementById(socialCopy);
-    tooltip.innerHTML = tooltip.innerHTML + "Copied:"
+    tooltip.innerHTML = tooltip.innerHTML + "Copied:";
     console.log("socialCopy   " + socialCopy)
     setTimeout(() => {
         tooltip.innerHTML = tooltip.innerHTML.replace("Copied:", "");
@@ -259,13 +246,13 @@ function copySocialLink(socialLink, socialCopy, socialText) {
     }, 1000);
 }
 function createFacebookHtmlCode(isLocalKeepOpen) {
-    let contentInputValue;
     let facebook;
     let preview;
+    let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let facebookLink = document.getElementById("facebookLink");
-        facebookLink.href = `https://www.facebook.com/sharer/sharer.php?u=${contentInputValue}`;
+        let facebookOpenLink = document.getElementById("facebookOpenLink");
+        facebookOpenLink.href = `https://www.facebook.com/sharer/sharer.php?u=${contentInputValue}`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -280,10 +267,9 @@ function createFacebookHtmlCode(isLocalKeepOpen) {
 
         document.getElementById("printFacebookHtmlCode").value = facebook;
         document.getElementById("printFacebookPreview").innerHTML = preview;
-        // console.log("preview  :>" + facebook)
-        // printFacebookHtmlCode.oninput = function () {
-        //     printFacebookPreview.innerHTML = printFacebookHtmlCode.value;
-        // }
+        printFacebookHtmlCode.oninput = function () {
+            printFacebookPreview.innerHTML = printFacebookHtmlCode.value;
+        }
         if (isLocalKeepOpen != true) {
             let showFacebookHtmlInputBox = document.getElementById("showFacebookHtmlCode");
             if (showFacebookHtmlInputBox.className == "block is-hidden") {
@@ -329,8 +315,8 @@ function createTwitterHtmlCode(isLocalKeepOpen) {
     let preview;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let twitterLink = document.getElementById("twitterLink");
-        twitterLink.href = `https://twitter.com/intent/tweet?url=${contentInputValue}&text=`;
+        let twitterOpenLink = document.getElementById("twitterOpenLink");
+        twitterOpenLink.href = `https://twitter.com/intent/tweet?url=${contentInputValue}&text=`;
     }
     else {
 
@@ -366,8 +352,8 @@ function createPinterestHtmlCode(isLocalKeepOpen) {
     let pinterest
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let pinterestLink = document.getElementById("pinterestLink");
-        pinterestLink.href = `http://pinterest.com/pin/create/button/?url=${contentInputValue}&media=&description=`;
+        let pinterestOpenLink = document.getElementById("pinterestOpenLink");
+        pinterestOpenLink.href = `http://pinterest.com/pin/create/button/?url=${contentInputValue}&media=&description=`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -404,8 +390,8 @@ function createLinkedInHtmlCode(isLocalKeepOpen) {
     let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let linkedInLink = document.getElementById("linkedInLink");
-        linkedInLink.href = `http://www.linkedin.com/shareArticle?mini=true&url=${contentInputValue}&title=`;
+        let linkedInOpenLink = document.getElementById("linkedInOpenLink");
+        linkedInOpenLink.href = `http://www.linkedin.com/shareArticle?mini=true&url=${contentInputValue}&title=`;
     }
     else {
 
@@ -442,8 +428,8 @@ function createBufferHtmlCode(isLocalKeepOpen) {
     let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let bufferLink = document.getElementById("bufferLink");
-        bufferLink.href = `https://buffer.com/add?text=&url=${contentInputValue}`;
+        let bufferOpenLink = document.getElementById("bufferOpenLink");
+        bufferOpenLink.href = `https://buffer.com/add?text=&url=${contentInputValue}`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -478,8 +464,8 @@ function createDiggHtmlCode(isLocalKeepOpen) {
     let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let diggtLink = document.getElementById("diggtLink");
-        diggtLink.href = `https://digg.com/submit?url=${contentInputValue}&title=`;
+        let diggOpenLink = document.getElementById("diggOpenLink");
+        diggOpenLink.href = `https://digg.com/submit?url=${contentInputValue}&title=`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -515,8 +501,8 @@ function createTumblrHtmlCode(isLocalKeepOpen) {
     let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let tumblrLink = document.getElementById("tumblrLink");
-        tumblrLink.href = `http://www.tumblr.com/share?v=3&u=${contentInputValue}&t=`;
+        let tumblrOpenLink = document.getElementById("tumblrOpenLink");
+        tumblrOpenLink.href = `http://www.tumblr.com/share?v=3&u=${contentInputValue}&t=`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -552,8 +538,8 @@ function createRedditHtmlCode(isLocalKeepOpen) {
     let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let redditLink = document.getElementById("redditLink");
-        redditLink.href = `https://reddit.com/submit?url=${contentInputValue}&title=`;
+        let redditOpenLink = document.getElementById("redditOpenLink");
+        redditOpenLink.href = `https://reddit.com/submit?url=${contentInputValue}&title=`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -578,20 +564,19 @@ function createRedditHtmlCode(isLocalKeepOpen) {
             if (showRedditHtmlInputBox.className == "block is-hidden") {
                 showRedditHtmlInputBox.className = "block";
             } else {
-                showTumblrHtmlInputBox.className = "block is-hidden";
+                showRedditHtmlInputBox.className = "block is-hidden";
             }
         }
     }
 }
 function createStumbleuponHtmlCode(isLocalKeepOpen) {
-
     let facebook;
     let preview;
     let contentInputValue;
     if (isLocalKeepOpen == false) {
         contentInputValue = document.getElementById("contentInputValue").value;
-        let stumbleuponLink = document.getElementById("stumbleuponLink");
-        stumbleuponLink.href = `https://www.stumbleupon.com/submit?url=${contentInputValue}&title=`;
+        let stumbleuponOpenLink = document.getElementById("stumbleuponOpenLink");
+        stumbleuponOpenLink.href = `https://www.stumbleupon.com/submit?url=${contentInputValue}&title=`;
     }
     else {
         contentInputValue = document.getElementById("contentInputValue").value;
@@ -652,23 +637,12 @@ function createDeliciousHtmlCode(isLocalKeepOpen) {
     }
 }
 function createEmailHtmlCode(isLocalKeepOpen) {
-    
-        if (isLocalKeepOpen == false) {
-
+    if (isLocalKeepOpen == false) {
     }
     else {
-    
-
-        let hidePreviewCodeDiv = document.getElementById("previewCodeDiv");
-        if (hidePreviewCodeDiv.className == "block") {
-            hidePreviewCodeDiv.className = "block is-hidden";
-        }
-        let emailOptions = document.getElementById("emailOptions");
-        if (emailOptions.className == "block is-hidden") {
-            emailOptions.className = "block";
-        }
-
-        if (isLocalKeepOpen != true) {
+        if (isLocalKeepOpen != true || isLocalKeepOpen==36)
+         {
+          
             let showEmailHtmlInputBox = document.getElementById("showEmailHtmlCode");
             if (showEmailHtmlInputBox.className == "block is-hidden") {
                 showEmailHtmlInputBox.className = "block";
@@ -677,49 +651,43 @@ function createEmailHtmlCode(isLocalKeepOpen) {
                 showEmailHtmlInputBox.className = "block is-hidden";
             }
         }
-
-        
     }
+     if(isLocalKeepOpen==9 || isLocalKeepOpen==9){
+        let hidePreviewCodeDiv = document.getElementById("previewCodeDiv");
+        if (hidePreviewCodeDiv.className == "block") {
+            hidePreviewCodeDiv.className = "block is-hidden";
+        }
+        let emailOptions = document.getElementById("emailOptions");
+        if (emailOptions.className == "block is-hidden") {
+            emailOptions.className = "block";
+        }
+     }
+     let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
+     let emailCcInputValue = document.getElementById("emailCcInputValue").value;
+     let emailBccInputValue = document.getElementById("emailBccInputValue").value;
+     let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
+ 
+ 
 
-
-    let facebook;
-    let preview;
-    let contentInputValue = document.getElementById("contentInputValue").value;
-    console.log(contentInputValue)
-    // let previewInputBox = document.getElementById("previewInputBox").value;
-    // if (previewInputBox.length == 0) {
-        // preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">Share on Facebook</a>`;
-        facebook =`mailtrweo:${contentInputValue}?`;
-    // }
-    // else {
-        facebook = `mailsdfato:${contentInputValue}?`;
-        // preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">${previewInputBox}</a>`;
-    // }
-    document.getElementById("printEmailHtmlCode").value = facebook;
-    // document.getElementById("printEmailPreview").innerHTML = preview;
-    contentInputValue.oninput = function () {
-        printEmailPreview.innerHTML = contentInputValue.value;
-    }
-    createAutomaticEmailValue();
-}
-
-function createAutomaticEmailValue(){
-    toggle = false;
-    let emailSubjectInputValue = document.getElementById("emailSubjectInputValue").value;
-    let emailCcInputValue = document.getElementById("emailCcInputValue").value;
-    let emailBccInputValue = document.getElementById("emailBccInputValue").value;
-    let emailBodyInputValue = document.getElementById("emailBodyInputValue").value;
-
-    let emailInputAnswer = `mailto:${contentInputValue}?`
-    let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
-    let emailCcAnswer = `&cc=${emailCcInputValue}`;
-    let emailBccAnswer = `&bcc=${emailBccInputValue}`;
+     let emailSubjectAnswer = `subject=${emailSubjectInputValue}`;
+     let emailCcAnswer = `&cc=${emailCcInputValue}`;
+     let emailBccAnswer = `&bcc=${emailBccInputValue}`;
     let emailBodyAnswer = `&body=${emailBodyInputValue}`;
 
-       document.getElementById("emailInputBox").value = emailInputAnswer + emailSubjectAnswer + emailCcAnswer + emailBccAnswer + emailBodyAnswer;
-       createEmailHtmlCode(true);
-}
 
+
+    let email;
+    let preview;
+    let contentInputValue = document.getElementById("contentInputValue").value;
+    email = `<a href="mailto:${contentInputValue}?" ${emailSubjectAnswer} ${emailCcAnswer} ${emailBccAnswer} ${emailBodyAnswer}>Send Email</a>`;
+    preview = `<a href="mailto:${contentInputValue}?">Send Email</a>`;
+    document.getElementById("printEmailHtmlCode").value = email   ;
+    document.getElementById("printEmailPreview").innerHTML = preview;
+
+    printEmailHtmlCode.oninput = function () {
+        printEmailPreview.innerHTML = printEmailHtmlCode.value;
+    }
+}
 
 function showPreviewInputBox() {
     createFacebookHtmlCode(true);
@@ -745,5 +713,4 @@ function hideEmailOptions() {
     if (emailOptions.className == "block") {
         emailOptions.className = "block is-hidden";
     }
-
 }
