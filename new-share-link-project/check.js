@@ -254,11 +254,11 @@ function createFacebookHtmlCode(isLocalKeepOpen) {
         contentInputValue = document.getElementById("contentInputValue").value;
         let previewInputBox = document.getElementById("previewInputBox").value;
         if (previewInputBox.length == 0) {
-            preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">Share on Facebook</a>`;
-            facebook = '<a href="https://www.facebook.com/sharer/sharer.php?u=' + contentInputValue + '">Share on Facebook</a>';
+            preview = '<a target="_blank"  href="https://www.facebook.com/sharer/sharer.php?u=' + contentInputValue + '">Share on Facebook</a>';
+            facebook = '<a target="_blank"  href="https://www.facebook.com/sharer/sharer.php?u=' + contentInputValue + '">Share on Facebook</a>';
         } else {
-            facebook = `<a href="https://www.facebook.com/sharer/sharer.php?u=' ${contentInputValue}'">${previewInputBox}</a>`;
-            preview = `<a  target="_blank" href="https://www.facebook.com/sharer/sharer.php?u='${contentInputValue}'">${previewInputBox}</a>`;
+            facebook = `<a target="_blank"  href="https://www.facebook.com/sharer/sharer.php?u=' ${contentInputValue}'">${previewInputBox}</a>`;
+            preview = `<a target="_blank"  href="https://www.facebook.com/sharer/sharer.php?u=' ${contentInputValue}'">${previewInputBox}</a>`;
         }
 
         document.getElementById("printFacebookHtmlCode").value = facebook;
@@ -670,7 +670,7 @@ function createEmailHtmlCode(isLocalKeepOpen) {
             }
         }
     }
-    if (isLocalKeepOpen == 9 || isLocalKeepOpen == 9) {
+    if (isLocalKeepOpen == 9 ) {
         let hidePreviewCodeDiv = document.getElementById("previewCodeDiv");
         if (hidePreviewCodeDiv.className == "block") {
             hidePreviewCodeDiv.className = "block is-hidden";
@@ -686,13 +686,10 @@ function createEmailHtmlCode(isLocalKeepOpen) {
     let emailBccAnswer = `&bcc=${emailBccInputValue}`;
     let emailBodyAnswer = `&body=${emailBodyInputValue}`;
 
-
-
-    // let email;
-    preview;
     contentInputValue = document.getElementById("contentInputValue").value;
     email = `<a href="mailto:${contentInputValue}?" ${emailSubjectAnswer} ${emailCcAnswer} ${emailBccAnswer} ${emailBodyAnswer}>Send Email</a>`;
-    preview = `<a href="mailto:${contentInputValue}?">Send Email</a>`;
+    // preview = `<a href="mailto:${contentInputValue}?">Send Email</a>`;
+    preview = `<a href="mailto:${contentInputValue}?subject=${emailSubjectInputValue}&cc=${emailCcInputValue}&bcc=${emailBccInputValue}&body=${emailBodyInputValue}">Send Email</a>`;
     document.getElementById("printEmailHtmlCode").value = email;
     document.getElementById("printEmailPreview").innerHTML = preview;
 
@@ -700,7 +697,6 @@ function createEmailHtmlCode(isLocalKeepOpen) {
         printEmailPreview.innerHTML = printEmailHtmlCode.value;
     }
 }
-
 function showPreviewInputBox() {
     createFacebookHtmlCode(true);
     // createFacebookDialogHtmlCode(true);
